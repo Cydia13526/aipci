@@ -2,6 +2,7 @@ export type Holding = {
     id: number;
     companyId: number;
     name: string;
+    industry: string;
     type: string;
     relationship: string;
     accountShares: number;
@@ -45,6 +46,27 @@ export interface InvestmentExperience {
         date: string;
         amount: string;
     }[];
+}
+
+export interface ComparableFund {
+    id: number;
+    name: string;
+    type: string;
+    relationship: string;
+    accountShares: number;
+    carryingAmount: number;
+    ownership: number;
+    classification: string;
+    fairValue: number;
+    isFavorite: boolean;
+    industry?: string;
+    companyName?: string;
+    totalEquity?: number;
+    totalDebt?: number;
+    debtToEquityRatio?: number;
+    totalInvestments?: number;
+    portfolioExits?: number;
+    averageReturn?: string | number;
 }
 
 export type Company = {

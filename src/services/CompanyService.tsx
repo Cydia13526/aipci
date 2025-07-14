@@ -1,4 +1,4 @@
-import {CapitalStructure, HoldingsData, InvestmentExperience} from "../types/Company";
+import {CapitalStructure, ComparableFund, HoldingsData, InvestmentExperience} from "../types/Company";
 
 
 export function getCapitalStructureByCompanyId(companyId: number) {
@@ -645,5 +645,93 @@ export const companyDetailsData = [
         email: "info@edtechinnovators.com",
         phone: "+1-619-555-1313",
         address: "234 Education Dr, San Diego, CA 92101"
+    }
+];
+
+
+export const comparableFundsData = [
+    {
+        id: 1,
+        fundId: 1,
+        companyId: 1,
+        items: [
+            { id: 101, name: "Google LLC", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 4500000, ownership: 0.015, classification: "AFS", fairValue: 4600000, isFavorite: false },
+            { id: 102, name: "SpaceX", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 2250000, ownership: 0.008, classification: "AFS", fairValue: 2300000, isFavorite: false },
+            { id: 103, name: "ARK Innovation ETF", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 5000000, ownership: 0.02, classification: "HTM", fairValue: 5100000, isFavorite: false },
+            { id: 104, name: "Intel Corp.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 1000000, ownership: 0.01, classification: "AFS", fairValue: 1020000, isFavorite: false },
+            { id: 105, name: "Vanguard Information Technology ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 4000000, ownership: 0.015, classification: "AFS", fairValue: 4100000, isFavorite: false },
+            { id: 106, name: "True Anomaly", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 1500000, ownership: 0.005, classification: "HTM", fairValue: 1550000, isFavorite: false },
+            { id: 107, name: "iShares U.S. Technology ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 3000000, ownership: 0.01, classification: "AFS", fairValue: 3050000, isFavorite: false }
+        ]
+    },
+    {
+        id: 2,
+        fundId: 2,
+        companyId: 2,
+        items: [
+            { id: 108, name: "Visa Inc.", type: "Stock", relationship: "Direct", accountShares: 4000, carryingAmount: 1600000, ownership: 0.02, classification: "AFS", fairValue: 1650000, isFavorite: false },
+            { id: 109, name: "Mastercard Inc.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 1200000, ownership: 0.015, classification: "AFS", fairValue: 1250000, isFavorite: false },
+            { id: 110, name: "BlackRock Global Allocation Fund", type: "Fund", relationship: "Managed", accountShares: 3500, carryingAmount: 1400000, ownership: 0.018, classification: "HTM", fairValue: 1450000, isFavorite: false },
+            { id: 111, name: "PayPal Holdings Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 800000, ownership: 0.01, classification: "AFS", fairValue: 820000, isFavorite: false },
+            { id: 112, name: "Fidelity Balanced Fund", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 1000000, ownership: 0.012, classification: "AFS", fairValue: 1020000, isFavorite: false },
+            { id: 113, name: "Square Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 600000, ownership: 0.008, classification: "HTM", fairValue: 610000, isFavorite: false },
+            { id: 114, name: "Vanguard High Dividend Yield ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 800000, ownership: 0.01, classification: "AFS", fairValue: 810000, isFavorite: false }
+        ]
+    },
+    {
+        id: 3,
+        fundId: 3,
+        companyId: 3,
+        items: [
+            { id: 115, name: "NextEra Energy Inc.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 900000, ownership: 0.015, classification: "AFS", fairValue: 920000, isFavorite: false },
+            { id: 116, name: "Enphase Energy Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 600000, ownership: 0.01, classification: "AFS", fairValue: 610000, isFavorite: false },
+            { id: 117, name: "Invesco Solar ETF", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 750000, ownership: 0.012, classification: "HTM", fairValue: 760000, isFavorite: false },
+            { id: 118, name: "First Solar Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 450000, ownership: 0.008, classification: "AFS", fairValue: 460000, isFavorite: false },
+            { id: 119, name: "iShares Global Clean Energy ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 600000, ownership: 0.01, classification: "AFS", fairValue: 610000, isFavorite: false },
+            { id: 120, name: "Vestas Wind Systems A/S", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 300000, ownership: 0.005, classification: "HTM", fairValue: 305000, isFavorite: false },
+            { id: 121, name: "First Trust NASDAQ Clean Edge Green Energy Index Fund", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 450000, ownership: 0.007, classification: "AFS", fairValue: 460000, isFavorite: false }
+        ]
+    },
+    {
+        id: 4,
+        fundId: 4,
+        companyId: 4,
+        items: [
+            { id: 122, name: "IonQ", type: "Stock", relationship: "Direct", accountShares: 2500, carryingAmount: 750000, ownership: 0.012, classification: "AFS", fairValue: 760000, isFavorite: false },
+            { id: 123, name: "Rigetti Computing", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 600000, ownership: 0.01, classification: "AFS", fairValue: 610000, isFavorite: false },
+            { id: 124, name: "ARK Innovation ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 800000, ownership: 0.015, classification: "HTM", fairValue: 810000, isFavorite: false },
+            { id: 125, name: "D-Wave Quantum Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 450000, ownership: 0.008, classification: "AFS", fairValue: 460000, isFavorite: false },
+            { id: 126, name: "Vanguard Information Technology ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 600000, ownership: 0.01, classification: "AFS", fairValue: 610000, isFavorite: false },
+            { id: 127, name: "QuantumScape Corp.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 300000, ownership: 0.005, classification: "HTM", fairValue: 305000, isFavorite: false },
+            { id: 128, name: "iShares U.S. Technology ETF", type: "Fund", relationship: "Managed", accountShares: 1000, carryingAmount: 400000, ownership: 0.007, classification: "AFS", fairValue: 410000, isFavorite: false }
+        ]
+    },
+    {
+        id: 5,
+        fundId: 5,
+        companyId: 5,
+        items: [
+            { id: 129, name: "Moderna Inc.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 900000, ownership: 0.015, classification: "AFS", fairValue: 910000, isFavorite: false },
+            { id: 130, name: "Teladoc Health", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 600000, ownership: 0.01, classification: "AFS", fairValue: 610000, isFavorite: false },
+            { id: 131, name: "Vanguard Health Care ETF", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 750000, ownership: 0.012, classification: "HTM", fairValue: 760000, isFavorite: false },
+            { id: 132, name: "Gilead Sciences Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 450000, ownership: 0.008, classification: "AFS", fairValue: 460000, isFavorite: false },
+            { id: 133, name: "iShares U.S. Healthcare ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 600000, ownership: 0.01, classification: "AFS", fairValue: 610000, isFavorite: false },
+            { id: 134, name: "Amgen Inc.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 300000, ownership: 0.005, classification: "HTM", fairValue: 305000, isFavorite: false },
+            { id: 135, name: "Health Care Select Sector SPDR Fund", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 450000, ownership: 0.007, classification: "AFS", fairValue: 460000, isFavorite: false }
+        ]
+    },
+    {
+        id: 6,
+        fundId: 6,
+        companyId: 6,
+        items: [
+            { id: 136, name: "Boeing Co.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 900000, ownership: 0.015, classification: "AFS", fairValue: 910000, isFavorite: false },
+            { id: 137, name: "Rocket Lab USA", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 600000, ownership: 0.01, classification: "AFS", fairValue: 610000, isFavorite: false },
+            { id: 138, name: "SPDR S&P Aerospace & Defense ETF", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 750000, ownership: 0.012, classification: "HTM", fairValue: 760000, isFavorite: false },
+            { id: 139, name: "Lockheed Martin Corp.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 450000, ownership: 0.008, classification: "AFS", fairValue: 460000, isFavorite: false },
+            { id: 140, name: "iShares U.S. Aerospace & Defense ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 600000, ownership: 0.01, classification: "AFS", fairValue: 610000, isFavorite: false },
+            { id: 141, name: "Raytheon Technologies Corp.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 300000, ownership: 0.005, classification: "HTM", fairValue: 305000, isFavorite: false },
+            { id: 142, name: "Invesco Aerospace & Defense ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 450000, ownership: 0.007, classification: "AFS", fairValue: 460000, isFavorite: false }
+        ]
     }
 ];

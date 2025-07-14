@@ -24,6 +24,7 @@ export const RangeFilter: React.FC<RangeFilterProps> = ({ label, value, options,
 
     return (
         <div className="flex flex-col gap-2">
+            <div className="text-sm">{label}</div>
             <div className="flex gap-2">
                 <input
                     type="number"
