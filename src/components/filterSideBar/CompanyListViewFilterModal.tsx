@@ -3,21 +3,20 @@ import { CompanyListViewFilter, FilterOption } from '../../types/CompanyListView
 import { Language, translations } from '../../types/Language';
 import { FilterModal } from './FilterModal';
 import { FilterOptions } from '../../types/CompanyDetailsViewFilter';
+import {useLanguage} from "../../context/LanguageContext";
 
 interface CompanyListViewFilterProps {
     filters: CompanyListViewFilter;
     setFilters: React.Dispatch<React.SetStateAction<CompanyListViewFilter>>;
     filterOptions: FilterOptions;
-    language: Language;
 }
 
 export const CompanyListViewFilterModal: React.FC<CompanyListViewFilterProps> = ({
                                                                                      filters,
                                                                                      setFilters,
-                                                                                     filterOptions,
-                                                                                     language,
+                                                                                     filterOptions
                                                                                  }) => {
-    const t = translations[language];
+    const { t, language, changeLanguage } = useLanguage();
 
     const filterConfig = [
         {

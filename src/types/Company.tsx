@@ -1,5 +1,5 @@
 export type Holding = {
-    id: number;
+    fundId: number;
     companyId: number;
     name: string;
     industry: string;
@@ -11,6 +11,8 @@ export type Holding = {
     classification: string;
     fairValue: number;
     isFavorite: boolean;
+    year: number;
+    quarter: string;
 };
 
 export type HoldingsData = {
@@ -45,6 +47,7 @@ export interface InvestmentExperience {
         industry: string;
         date: string;
         amount: string;
+        quarter: string;
     }[];
 }
 
@@ -58,7 +61,11 @@ export interface ComparableFund {
     ownership: number;
     classification: string;
     fairValue: number;
-    isFavorite: boolean;
+    nav: number;
+    returnRate: number;
+    lowestNav: number;
+    highestNav: number;
+    isFavorite?: boolean;
     industry?: string;
     companyName?: string;
     totalEquity?: number;
@@ -67,7 +74,36 @@ export interface ComparableFund {
     totalInvestments?: number;
     portfolioExits?: number;
     averageReturn?: string | number;
+    performance?: FundPerformance[];
+    historicalPrices: HistoricalPrice[];
 }
+
+export interface FundPerformance {
+    year: number;
+    fundReturn: number | null;
+    benchmarkReturn: number;
+}
+
+export interface HistoricalPrice {
+    date: string;
+    nav: number;
+}
+
+export interface FundData {
+    id: number;
+    name: string;
+    type: string;
+    isinCode: number;
+    nav: number;
+    returnRate: number;
+    lowestNav: number;
+    highestNav: number;
+    performance: FundPerformance[];
+    historicalPrices: HistoricalPrice[];
+    relatedIsinCode : string[];
+    isFavorite?: boolean;
+}
+
 
 export type Company = {
     id: number;

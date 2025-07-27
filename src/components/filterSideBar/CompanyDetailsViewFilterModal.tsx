@@ -2,6 +2,7 @@ import React from 'react';
 import { CompanyDetailsViewFilter, FilterOptions } from '../../types/CompanyDetailsViewFilter';
 import { FilterOption } from '../../types/CompanyListViewFilter';
 import { FilterModal } from './FilterModal';
+import {useLanguage} from "../../context/LanguageContext";
 
 interface CompanyDetailsViewFilterModalProps {
   filters: CompanyDetailsViewFilter;
@@ -16,70 +17,71 @@ const CompanyDetailsViewFilterModal: React.FC<CompanyDetailsViewFilterModalProps
                                                                                        filterOptions,
                                                                                        exportToCSV,
                                                                                      }) => {
+  const { t, language, changeLanguage } = useLanguage();
   const filterConfig = [
     {
-      label: 'Search by Name',
+      label: t['Search by Name'] || "Search by Name",
       type: 'text' as const,
       key: 'search' as keyof CompanyDetailsViewFilter,
-      placeholder: 'Enter name...',
+      placeholder: t["Enter name..."] || "Enter name...",
       ariaLabel: 'Search holdings by name',
     },
     {
-      label: 'Type',
+      label: t["Type"] || "Type",
       type: 'select' as const,
       key: 'type' as keyof CompanyDetailsViewFilter,
       options: [
-        { value: '', label: 'All Types' },
-        { value: 'Stock', label: 'Stock' },
-        { value: 'Fund', label: 'Fund' },
+        { value: '', label: t['All Types'] || "All Types" },
+        { value: 'Stock', label:  t['Stock'] || "Stock" },
+        { value: 'Fund', label: t['Fund'] || "Fund" },
       ],
       ariaLabel: 'Filter by type',
     },
     {
-      label: 'Relationship',
+      label: t['Relationship'],
       type: 'select' as const,
       key: 'relationship' as keyof CompanyDetailsViewFilter,
       options: [
-        { value: '', label: 'All Relationships' },
-        { value: 'Direct', label: 'Direct' },
-        { value: 'Managed', label: 'Managed' },
+        { value: '', label: t['All Relationships'] || "All Relationships" },
+        { value: 'Direct', label: t['Direct'] || "Direct" },
+        { value: 'Managed', label: t['Managed'] || "Managed" },
       ],
       ariaLabel: 'Filter by relationship',
     },
     {
-      label: 'Classification',
+      label: t['Classification'],
       type: 'select' as const,
       key: 'classification' as keyof CompanyDetailsViewFilter,
       options: [
-        { value: '', label: 'All Classifications' },
-        { value: 'AFS', label: 'AFS' },
+        { value: '', label: t['All Classifications'] || "All Classifications" },
+        { value: 'AFS', label: 'AFS'  },
         { value: 'HTM', label: 'HTM' },
       ],
       ariaLabel: 'Filter by classification',
     },
     {
-      label: 'Account Shares',
+      label: t['Account Shares'],
       type: 'range' as const,
       key: 'accountShares' as keyof CompanyDetailsViewFilter,
       options: filterOptions.accountShares as FilterOption[],
       ariaLabel: 'Filter by account shares',
     },
     {
-      label: 'Carrying Amount',
+      label: t['Carrying Amount'],
       type: 'range' as const,
       key: 'carryingAmount' as keyof CompanyDetailsViewFilter,
       options: filterOptions.carryingAmount as FilterOption[],
       ariaLabel: 'Filter by carrying amount',
     },
     {
-      label: 'Ownership (%)',
+      label: t['Ownership'] + '(%)',
       type: 'range' as const,
       key: 'ownership' as keyof CompanyDetailsViewFilter,
       options: filterOptions.ownership as FilterOption[],
       ariaLabel: 'Filter by ownership percentage',
     },
     {
-      label: 'Fair Value',
+      label: t['Fair Value'],
       type: 'range' as const,
       key: 'fairValue' as keyof CompanyDetailsViewFilter,
       options: filterOptions.fairValue as FilterOption[],

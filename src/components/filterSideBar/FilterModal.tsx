@@ -2,6 +2,7 @@ import React from 'react';
 import { FilterSection } from './FilterSection';
 import { RangeFilter } from './RangeFilter';
 import { FilterOption } from '../../types/CompanyListViewFilter';
+import {useLanguage} from "../../context/LanguageContext";
 
 interface FilterConfig<T> {
     label: string;
@@ -25,13 +26,14 @@ export const FilterModal = <T,>({
                                     filterConfig,
                                     exportToCSV,
                                 }: FilterModalProps<T>) => {
+    const { t, language, changeLanguage } = useLanguage();
     return (
         <div className="flex flex-col gap-6 overflow-y-auto">
             {filterConfig.map((config) => (
                 <div key={String(config.key)}>
                     {config.type === 'range' ? (
                         <RangeFilter
-                            label={config.label}
+                            label= {config.label}
                             value={filters[config.key] as { min: string | number; max: string | number }}
                             options={config.options as FilterOption[]}
                             onChange={(range) =>
@@ -59,7 +61,7 @@ export const FilterModal = <T,>({
                     className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors duration-200 text-sm font-medium"
                     aria-label="Export to CSV"
                 >
-                    Export to CSV
+                    {t["Export to CSV"] || "Export to CSV"}
                 </button>
             )}
         </div>

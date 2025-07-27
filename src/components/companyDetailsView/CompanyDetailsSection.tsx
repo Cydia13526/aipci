@@ -1,42 +1,43 @@
 import React from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { Company } from "../../types/Company";
-
+import {useLanguage} from "../../context/LanguageContext";
 const FaChevronDownIcon = FaChevronDown as React.ComponentType<{ size?: number }>;
 const FaChevronUpIcon = FaChevronUp as React.ComponentType<{ size?: number }>;
 
 interface InfoContentProps {
     company: Company;
     selectedInfoTab: "companyInfo" | "capitalStructure" | "investmentExperience";
+    t: any;
 }
 
 interface CompanyDetailsSectionProps {
     company: Company;
 }
 
-const renderInfoContent = ({ company, selectedInfoTab }: InfoContentProps) => {
+const renderInfoContent = ({ company, selectedInfoTab, t}: InfoContentProps) => {
     switch (selectedInfoTab) {
         case "companyInfo":
             return (
                 <div className="p-4">
                     <p className="mb-2 text-gray-600 text-sm">
-                        <strong>Industry:</strong> {company.industry ?? "N/A"}
+                        <strong>{t["Industry"] || "Industry"}:</strong> {company.industry ?? "N/A"}
                     </p>
                     <p className="mb-2 text-gray-600 text-sm">
-                        <strong>Market Cap:</strong>{" "}
+                        <strong>{t["Market Cap"] || "Market Cap"}:</strong>{" "}
                         {company.marketCap != null ? `$${company.marketCap.toLocaleString()}` : "N/A"}
                     </p>
                     <p className="mb-2 text-gray-600 text-sm">
-                        <strong>Headquarters:</strong> {company.headquarters ?? "N/A"}
+                        <strong>{t["Headquarters"] || "Headquarters"}:</strong> {company.headquarters ?? "N/A"}
                     </p>
                     <p className="mb-2 text-gray-600 text-sm">
-                        <strong>Email:</strong> {company.email ?? "N/A"}
+                        <strong>{t["Email"] || "Email"}:</strong> {company.email ?? "N/A"}
                     </p>
                     <p className="mb-2 text-gray-600 text-sm">
-                        <strong>Phone:</strong> {company.phone ?? "N/A"}
+                        <strong>{t["Phone"] || "Phone"}:</strong> {company.phone ?? "N/A"}
                     </p>
                     <p className="mb-2 text-gray-600 text-sm">
-                        <strong>Address:</strong> {company.address ?? "N/A"}
+                        <strong>{t["Address"] || "Address"}:</strong> {company.address ?? "N/A"}
                     </p>
                 </div>
             );
@@ -114,6 +115,7 @@ const renderInfoContent = ({ company, selectedInfoTab }: InfoContentProps) => {
 };
 
 const CompanyDetailsSection: React.FC<CompanyDetailsSectionProps> = ({ company }) => {
+    const { t, language, changeLanguage } = useLanguage();
     const [isInfoSectionOpen, setIsInfoSectionOpen] = React.useState(false);
     const [selectedInfoTab, setSelectedInfoTab] = React.useState<
         "companyInfo" | "capitalStructure" | "investmentExperience"
@@ -126,7 +128,7 @@ const CompanyDetailsSection: React.FC<CompanyDetailsSectionProps> = ({ company }
                 onClick={() => setIsInfoSectionOpen(!isInfoSectionOpen)}
                 aria-label={isInfoSectionOpen ? "Collapse Information Section" : "Expand Information Section"}
             >
-                <span>Company Details</span>
+                {t["Company Details"] || "Company Details"}
                 {isInfoSectionOpen ? <FaChevronUpIcon size={16} /> : <FaChevronDownIcon size={16} />}
             </button>
             {isInfoSectionOpen && (
@@ -141,7 +143,7 @@ const CompanyDetailsSection: React.FC<CompanyDetailsSectionProps> = ({ company }
                             }`}
                             aria-label="View Company Information"
                         >
-                            Company Information
+                            {t["Company Information"] || "Company Information"}
                         </button>
                         <button
                             onClick={() => setSelectedInfoTab("capitalStructure")}
@@ -152,7 +154,7 @@ const CompanyDetailsSection: React.FC<CompanyDetailsSectionProps> = ({ company }
                             }`}
                             aria-label="View Capital Structure"
                         >
-                            Capital Structure
+                            {t["Capital Structure"] || "Capital Structure"}
                         </button>
                         <button
                             onClick={() => setSelectedInfoTab("investmentExperience")}
@@ -163,11 +165,11 @@ const CompanyDetailsSection: React.FC<CompanyDetailsSectionProps> = ({ company }
                             }`}
                             aria-label="View Investment Experience"
                         >
-                            Investment Experience
+                            {t["Investment Experience"] || "Investment Experience"}
                         </button>
                     </div>
                     <div className="w-full md:w-3/4 bg-white p-4 rounded-lg border border-gray-200">
-                        {renderInfoContent({ company, selectedInfoTab })}
+                        {renderInfoContent({ company, selectedInfoTab, t})}
                     </div>
                 </div>
             )}

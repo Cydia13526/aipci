@@ -1,12 +1,13 @@
 import React from 'react';
 import { Company } from '../../types/Company';
 import {Translations} from "../../services/TransaltionService";
+import {translations} from "../../types/Language";
 
 interface EditCompanyModalProps {
     editCompany: Company | null;
     setCompanies: React.Dispatch<React.SetStateAction<Company[]>>;
     setEditCompany: (company: Company | null) => void;
-    language: 'en_us' | 'zh_cn';
+    language: 'en_us' | 'zh_tw';
 }
 
 const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
@@ -15,12 +16,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                                                setEditCompany,
                                                                language,
                                                            }) => {
-    // Helper function to get translation based on language
-    const getTranslation = (enKey: string) => {
-        const translation = Translations.find(t => t.en_us === enKey);
-        return translation ? translation[language] : enKey;
-    };
-
+    const t = translations[language];
     if (!editCompany) return null;
 
     const handleEditSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -84,22 +80,22 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                 <button
                     className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
                     onClick={() => setEditCompany(null)}
-                    aria-label={getTranslation('Close')}
+                    aria-label={t['Close']}
                 >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
                 <h2 id="edit-company-modal-title" className="text-3xl font-semibold text-gray-800 mb-6">
-                    {getTranslation('Edit Company')}
+                    {t['Edit Company']}
                 </h2>
                 <form onSubmit={handleEditSubmit} className="space-y-6">
                     {/* General Information */}
                     <div className="border-b pb-4">
-                        <h3 className="text-xl font-medium text-gray-700 mb-4">{getTranslation('General Information')}</h3>
+                        <h3 className="text-xl font-medium text-gray-700 mb-4">{t['General Information']}</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Name')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Name']}</label>
                                 <input
                                     type="text"
                                     name="name"
@@ -109,7 +105,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Industry')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Industry']}</label>
                                 <input
                                     type="text"
                                     name="industry"
@@ -119,7 +115,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Market Cap')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Market Cap']}</label>
                                 <input
                                     type="number"
                                     name="marketCap"
@@ -129,7 +125,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Headquarters')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Headquarters']}</label>
                                 <input
                                     type="text"
                                     name="headquarters"
@@ -138,7 +134,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Country')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Country']}</label>
                                 <input
                                     type="text"
                                     name="country"
@@ -147,7 +143,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Email')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Email']}</label>
                                 <input
                                     type="email"
                                     name="email"
@@ -156,7 +152,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Phone')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Phone']}</label>
                                 <input
                                     type="text"
                                     name="phone"
@@ -165,7 +161,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Address')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Address']}</label>
                                 <input
                                     type="text"
                                     name="address"
@@ -178,10 +174,10 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
 
                     {/* Capital Structure */}
                     <div className="border-b pb-4">
-                        <h3 className="text-xl font-medium text-gray-700 mb-4">{getTranslation('Capital Structure')}</h3>
+                        <h3 className="text-xl font-medium text-gray-700 mb-4">{t['Capital Structure']}</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Total Equity')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Total Equity']}</label>
                                 <input
                                     type="number"
                                     name="totalEquity"
@@ -190,7 +186,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Total Debt')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Total Debt']}</label>
                                 <input
                                     type="number"
                                     name="totalDebt"
@@ -199,7 +195,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Debt-to-Equity Ratio')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Debt-to-Equity Ratio']}</label>
                                 <input
                                     type="number"
                                     step="0.01"
@@ -209,7 +205,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Convertible Bonds')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Convertible Bonds']}</label>
                                 <input
                                     type="number"
                                     name="convertibleBonds"
@@ -218,7 +214,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Preferred Stock')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Preferred Stock']}</label>
                                 <input
                                     type="number"
                                     name="preferredStock"
@@ -227,7 +223,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Bonds')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Bonds']}</label>
                                 <input
                                     type="number"
                                     name="bonds"
@@ -236,7 +232,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Green Bonds')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Green Bonds']}</label>
                                 <input
                                     type="number"
                                     name="greenBonds"
@@ -245,7 +241,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Last Updated')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Last Updated']}</label>
                                 <input
                                     type="text"
                                     name="lastUpdated"
@@ -258,10 +254,10 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
 
                     {/* Investment Experience */}
                     <div>
-                        <h3 className="text-xl font-medium text-gray-700 mb-4">{getTranslation('Investment Experience')}</h3>
+                        <h3 className="text-xl font-medium text-gray-700 mb-4">{t['Investment Experience']}</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Investment Strategy')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Investment Strategy']}</label>
                                 <input
                                     type="text"
                                     name="strategy"
@@ -270,7 +266,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Total Investments')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Total Investments']}</label>
                                 <input
                                     type="number"
                                     name="totalInvestments"
@@ -279,7 +275,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Portfolio Exits')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Portfolio Exits']}</label>
                                 <input
                                     type="number"
                                     name="portfolioExits"
@@ -288,7 +284,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Average Return')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Average Return']}</label>
                                 <input
                                     type="text"
                                     name="averageReturn"
@@ -297,7 +293,7 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-600">{getTranslation('Years Active')}</label>
+                                <label className="block text-sm font-medium text-gray-600">{t['Years Active']}</label>
                                 <input
                                     type="number"
                                     name="yearsActive"
@@ -313,16 +309,16 @@ const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
                             type="button"
                             onClick={() => setEditCompany(null)}
                             className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors"
-                            aria-label={getTranslation('Cancel')}
+                            aria-label={t['Cancel']}
                         >
-                            {getTranslation('Cancel')}
+                            {t['Cancel']}
                         </button>
                         <button
                             type="submit"
                             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                            aria-label={getTranslation('Save')}
+                            aria-label={t['Save']}
                         >
-                            {getTranslation('Save')}
+                            {t['Save']}
                         </button>
                     </div>
                 </form>

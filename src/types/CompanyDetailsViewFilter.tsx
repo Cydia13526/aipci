@@ -9,6 +9,8 @@ export type FilterOptions = {
     carryingAmount?: FilterOption[];
     ownership?: FilterOption[];
     fairValue?: FilterOption[];
+    year?: FilterOption[];
+    quarter?: FilterOption[];
 };
 
 export type CompanyDetailsViewFilter = {

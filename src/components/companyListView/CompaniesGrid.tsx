@@ -16,7 +16,6 @@ interface CompanyGridProps {
     companies: Company[];
     filters: CompanyListViewFilter;
     setSelectedCompany: (company: Company) => void;
-    setView: (view: string) => void;
     language: Language;
     selectedCompanies: number[];
     setSelectedCompanies: React.Dispatch<React.SetStateAction<number[]>>;
@@ -27,7 +26,6 @@ const CompanyGrid: React.FC<CompanyGridProps> = ({
                                                      companies,
                                                      filters,
                                                      setSelectedCompany,
-                                                     setView,
                                                      language,
                                                      selectedCompanies,
                                                      setSelectedCompanies,
@@ -124,7 +122,6 @@ const CompanyGrid: React.FC<CompanyGridProps> = ({
                     <button
                         onClick={() => {
                             setSelectedCompany(params.data);
-                            setView('marketableSecurities');
                         }}
                         className="text-gray-600 hover:underline"
                         aria-label={`${t["View marketable securities"]} ${params.data.name}`}

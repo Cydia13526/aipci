@@ -8,10 +8,10 @@ import 'ag-grid-community/styles/ag-theme-alpine.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Company } from '../types/Company';
 import { CompanyListViewFilter, FilterOption } from '../types/CompanyListViewFilter';
-import { Language, translations } from '../types/Language';
 import CompanyGrid from '../components/companyListView/CompaniesGrid';
 import EditCompanyModal from '../components/editCompany/EditCompanyModal';
 import { CompanyListViewFilterModal } from '../components/filterSideBar/CompanyListViewFilterModal';
+import {useLanguage} from "../context/LanguageContext";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -19,21 +19,17 @@ const FaBarsIcon = FaBars as React.ComponentType<{ size?: number }>;
 const FaTimesIcon = FaTimes as React.ComponentType<{ size?: number }>;
 
 interface CompanyListProps {
-    setView: (view: string) => void;
-    setSelectedCompany: (company: Company | null) => void;
+    setSelectedCompany: any;
     companies: Company[];
-    setCompanies: React.Dispatch<React.SetStateAction<Company[]>>;
-    language: Language;
+    setCompanies: any;
 }
 
 function CompanyListViewPage({
-                                 setView,
                                  setSelectedCompany,
                                  companies,
                                  setCompanies,
-                                 language,
                              }: CompanyListProps) {
-    const t = translations[language];
+    const { t, language, changeLanguage } = useLanguage();
     const [filters, setFilters] = useState<CompanyListViewFilter>({
         search: '',
         industry: '',
@@ -118,7 +114,6 @@ function CompanyListViewPage({
                             filters={filters}
                             setFilters={setFilters}
                             filterOptions={filterOptions}
-                            language={language}
                         />
                     )}
                 </div>
@@ -126,7 +121,6 @@ function CompanyListViewPage({
                     companies={companies}
                     filters={filters}
                     setSelectedCompany={setSelectedCompany}
-                    setView={setView}
                     language={language}
                     selectedCompanies={selectedCompanies}
                     setSelectedCompanies={setSelectedCompanies}

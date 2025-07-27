@@ -1,5 +1,6 @@
 import React from "react";
 import {FilterOption} from "../../types/CompanyListViewFilter";
+import {useLanguage} from "../../context/LanguageContext";
 
 type RangeFilterProps = {
     label: string;
@@ -10,6 +11,8 @@ type RangeFilterProps = {
 
 
 export const RangeFilter: React.FC<RangeFilterProps> = ({ label, value, options, onChange }) => {
+    const { t, language, changeLanguage } = useLanguage();
+
     const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange({ ...value, min: e.target.value });
     };
@@ -28,7 +31,7 @@ export const RangeFilter: React.FC<RangeFilterProps> = ({ label, value, options,
             <div className="flex gap-2">
                 <input
                     type="number"
-                    placeholder="Min"
+                    placeholder={t["Min"]}
                     value={value.min}
                     onChange={handleMinChange}
                     className="p-2 border border-gray-300 rounded-md w-full text-sm"
@@ -36,7 +39,7 @@ export const RangeFilter: React.FC<RangeFilterProps> = ({ label, value, options,
                 />
                 <input
                     type="number"
-                    placeholder="Max"
+                    placeholder={t["Max"]}
                     value={value.max}
                     onChange={handleMaxChange}
                     className="p-2 border border-gray-300 rounded-md w-full text-sm"
@@ -51,7 +54,7 @@ export const RangeFilter: React.FC<RangeFilterProps> = ({ label, value, options,
                 className="p-2 border border-gray-300 rounded-md w-full text-sm"
                 aria-label={`Select ${label} range`}
             >
-                <option value="">Custom Range</option>
+                <option value="">{t["Custom Range"]}</option>
                 {options.map((option) => (
                     <option key={option.label} value={option.label}>
                         {option.label}
