@@ -22,4 +22,5 @@ export type CompanyDetailsViewFilter = {
     carryingAmount: { min: string | number; max: string | number };
     ownership: { min: string | number; max: string | number };
     fairValue: { min: string | number; max: string | number };
+    currency: string;
 };

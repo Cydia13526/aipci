@@ -3,24 +3,26 @@ import { AgGridReact } from "ag-grid-react";
 import { ColDef } from "ag-grid-community";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
-import {Holding, ComparableFund, FundData, HistoricalPrice} from "../../types/Company";
+import { Holding, ComparableFund, FundData, HistoricalPrice } from "../../types/Company";
 import { SelectAllHeader } from "./SelectAllHeader";
 import {
-    companyDetailsData, fundData,
+    companyDetailsData,
+    fundData,
     getCapitalStructureByCompanyId,
     getHoldingsByCompanyId,
     getInvestmentExperienceByCompanyId,
     holdingsData,
     InvestmentExperienceData,
 } from "../../services/CompanyService";
-import {useLanguage} from "../../context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 type MarketableSecurityGridProps = {
     data: Holding[];
     handleSelectHolding: (ids: number[]) => void;
     toggleFavorite: (id: number) => void;
     setSelectedHolding: (holding: Holding | null) => void;
-    gridRef: any;
+    gridRef: React.RefObject<AgGridReact<Holding> | null>;
+    displayCurrency: 'USD' | 'Original';
 };
 
 const ComparableFundsModal: React.FC<{
@@ -106,11 +108,9 @@ const ComparableFundsModal: React.FC<{
                             key={f.id ?? f.id}
                             className={index === 0 ? "bg-blue-50" : index % 2 === 0 ? "bg-gray-50" : ""}
                         >
-                            {/* Fund Name */}
                             <td className="border p-2 font-medium">
                                 {index === 0 ? "Selected Fund" : `Comparable Fund ${index}`}: {f.name}
                             </td>
-                            {/* NAV */}
                             <td className="border p-2">
                                 <div className="text-sm">
                                     Latest NAV: {f.nav.toFixed(4)}<br />
@@ -119,7 +119,6 @@ const ComparableFundsModal: React.FC<{
                                     Highest NAV: {f.highestNav.toFixed(4)}
                                 </div>
                             </td>
-                            {/* Performance */}
                             <td className="border p-2">
                                 <div className="text-sm">
                                     <p>Denominated Currency: CNY</p>
@@ -159,7 +158,6 @@ const ComparableFundsModal: React.FC<{
                                     </p>
                                 </div>
                             </td>
-                            {/* Historical Price */}
                             <td className="border p-2">
                                 <div className="text-sm">
                                     <p>Denominated Currency: CNY</p>
@@ -221,12 +219,21 @@ const MarketableSecurityGrid: React.FC<MarketableSecurityGridProps> = ({
                                                                            toggleFavorite,
                                                                            setSelectedHolding,
                                                                            gridRef,
+                                                                           displayCurrency,
                                                                        }) => {
-    const { t, language, changeLanguage } = useLanguage();
+    const { t } = useLanguage();
     const [selectedHoldings, setSelectedHoldings] = React.useState<number[]>([]);
     const [modalOpen, setModalOpen] = React.useState(false);
     const [selectedFund, setSelectedFund] = React.useState<Holding | null>(null);
     const [comparableFunds, setComparableFunds] = React.useState<ComparableFund[]>([]);
+
+    // Exchange rates for currency conversion
+    const exchangeRates: { [key: string]: number } = {
+        USD: 1,
+        HKD: 1 / 7.8, // 1 USD ≈ 7.8 HKD
+        EUR: 1 / 0.92, // 1 USD ≈ 0.92 EUR
+        TWD: 1 / 32.5, // 1 USD ≈ 32.5 TWD
+    };
 
     const handleSelectAll = React.useCallback(
         (checked: boolean) => {
@@ -331,7 +338,7 @@ const MarketableSecurityGrid: React.FC<MarketableSecurityGridProps> = ({
             ? fundData.filter((f) => selectedFundData.relatedIsinCode.includes(f.isinCode.toString()))
             : [];
         const relatedComparable = relatedFunds
-            .filter((f) =>  f.id !== holding.fundId)
+            .filter((f) => f.id !== holding.fundId)
             .map((f) => {
                 const holdingCompany = holdingsData.find((h) =>
                     h.items.some((item) => item.fundId === f.isinCode)
@@ -372,6 +379,7 @@ const MarketableSecurityGrid: React.FC<MarketableSecurityGridProps> = ({
                     isFavorite: f.isFavorite
                 };
             });
+
         // Include funds from same region and similar industry
         const sameRegionCompanies = companyDetailsData.filter(
             (c) => c.location === region && c.id !== companyId
@@ -438,8 +446,6 @@ const MarketableSecurityGrid: React.FC<MarketableSecurityGridProps> = ({
             })
             .slice(0, 3) as ComparableFund[];
     };
-
-
 
     const handleFundClick = (holding: Holding) => {
         if (holding.type === "Fund") {
@@ -539,6 +545,11 @@ const MarketableSecurityGrid: React.FC<MarketableSecurityGridProps> = ({
                 sortable: true,
             },
             {
+                headerName: t["Currency"],
+                field: "currency",
+                sortable: true,
+            },
+            {
                 headerName: t["Account Shares"],
                 field: "accountShares",
                 sortable: true,
@@ -548,7 +559,13 @@ const MarketableSecurityGrid: React.FC<MarketableSecurityGridProps> = ({
                 headerName: t["Carrying Amount"],
                 field: "carryingAmount",
                 sortable: true,
-                valueFormatter: (params) => `$${params.value?.toLocaleString() ?? 0}`,
+                valueFormatter: (params) => {
+                    const value = displayCurrency === 'USD' && params.data?.currency && params.data?.currency !== 'USD'
+                        ? (params.value * (exchangeRates[params.data?.currency] || 1))
+                        : params.value;
+                    const currency = displayCurrency === 'USD' ? 'USD' : params.data?.currency;
+                    return `${currency} ${value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) ?? '0.00'}`;
+                },
             },
             {
                 headerName: t["Ownership"] + " (%)",
@@ -567,10 +584,16 @@ const MarketableSecurityGrid: React.FC<MarketableSecurityGridProps> = ({
                 headerName: t["Fair Value"],
                 field: "fairValue",
                 sortable: true,
-                valueFormatter: (params) => `$${params.value?.toLocaleString() ?? 0}`,
+                valueFormatter: (params) => {
+                    const value = displayCurrency === 'USD' && params.data?.currency && params.data?.currency !== 'USD'
+                        ? (params.value * (exchangeRates[params.data?.currency] || 1))
+                        : params.value;
+                    const currency = displayCurrency === 'USD' ? 'USD' : params.data?.currency;
+                    return `${currency} ${value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) ?? '0.00'}`;
+                },
             },
         ],
-        [handleSelectHolding, handleSelectAll, selectedHoldings, toggleFavorite, setSelectedHolding]
+        [handleSelectHolding, handleSelectAll, selectedHoldings, toggleFavorite, setSelectedHolding, displayCurrency, t]
     );
 
     const defaultColDef: ColDef<Holding> = React.useMemo(

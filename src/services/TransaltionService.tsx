@@ -126,6 +126,16 @@ export const Translations = [
     { Id: 123, en_us: "Stock", zh_tw: "股票" },
     { Id: 124, en_us: "All Types", zh_tw: "所有類型" },
     { Id: 125, en_us: "Fund", zh_tw: "基金" },
+    { Id: 126, en_us: "All Investment Preferences", zh_tw: "所有投資偏好" },
     { Id: 126, en_us: "All Relationships", zh_tw: "所有關係" },
-    { Id: 127, en_us: "All Classifications", zh_tw: "所有分類" }
+    { Id: 127, en_us: "All Classifications", zh_tw: "所有分類" },
+    { Id: 128, en_us: "Show Original Currency", zh_tw: "顯示原始貨幣" },
+    { Id: 129, en_us: "Convert to USD", zh_tw: "轉換為美元" },
+    { Id: 130, en_us: "Investment Preference", zh_tw: "投資偏好" },
+    { Id: 131, en_us: "Investment Preferences", zh_tw: "投資偏好" },
+    { Id: 132, en_us: "Alternative", zh_tw: "另類投資" },
+    { Id: 133, en_us: "Venture Capital", zh_tw: "風險投資" },
+    { Id: 134, en_us: "Private Equity", zh_tw: "私募股權" },
+    { Id: 135, en_us: "Bond", zh_tw: "債券" },
+    { Id: 136, en_us: "Real Estate", zh_tw: "房地產" }
 ];

@@ -327,191 +327,191 @@ export const holdingsData = [
         id: 1,
         companyId: 1,
         items: [
-            { fundId: null, name: "Apple Inc.", type: "Stock", relationship: "Direct", accountShares: 10000, carryingAmount: 1500000, ownership: 0.05, classification: "AFS", fairValue: 1600000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 2, name: "Vanguard Total Stock Market Fund", type: "Fund", relationship: "Managed", accountShares: 5000, carryingAmount: 500000, ownership: 0.02, classification: "HTM", fairValue: 510000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Tesla Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 600000, ownership: 0.01, classification: "AFS", fairValue: 620000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 4, name: "SPDR S&P 500 ETF", type: "Fund", relationship: "Managed", accountShares: 3000, carryingAmount: 900000, ownership: 0.03, classification: "AFS", fairValue: 910000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Amazon.com Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 450000, ownership: 0.005, classification: "HTM", fairValue: 460000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Microsoft Corp.", type: "Stock", relationship: "Direct", accountShares: 4000, carryingAmount: 1200000, ownership: 0.015, classification: "AFS", fairValue: 1250000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 7, name: "iShares Core MSCI EAFE ETF", type: "Fund", relationship: "Managed", accountShares: 3500, carryingAmount: 700000, ownership: 0.025, classification: "HTM", fairValue: 710000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "NVIDIA Corp.", type: "Stock", relationship: "Direct", accountShares: 2500, carryingAmount: 800000, ownership: 0.008, classification: "AFS", fairValue: 820000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 9, name: "Fidelity Total Market Index Fund", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Alphabet Inc.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 900000, ownership: 0.012, classification: "AFS", fairValue: 920000, isFavorite: false, year: 2024, quarter: "Q4" }
+            { fundId: null, name: "Apple Inc.", type: "Stock", relationship: "Direct", accountShares: 10000, carryingAmount: 1500000, ownership: 0.05, classification: "AFS", fairValue: 1600000, isFavorite: false, year: 2025, quarter: "Q1", currency: "TWD" },
+            { fundId: 2, name: "Vanguard Total Stock Market Fund", type: "Fund", relationship: "Managed", accountShares: 5000, carryingAmount: 500000, ownership: 0.02, classification: "HTM", fairValue: 510000, isFavorite: false, year: 2025, quarter: "Q1", currency: "TWD" },
+            { fundId: null, name: "Tesla Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 600000, ownership: 0.01, classification: "AFS", fairValue: 620000, isFavorite: false, year: 2025, quarter: "Q1", currency: "TWD" },
+            { fundId: 4, name: "SPDR S&P 500 ETF", type: "Fund", relationship: "Managed", accountShares: 3000, carryingAmount: 900000, ownership: 0.03, classification: "AFS", fairValue: 910000, isFavorite: false, year: 2025, quarter: "Q1", currency: "TWD" },
+            { fundId: null, name: "Amazon.com Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 450000, ownership: 0.005, classification: "HTM", fairValue: 460000, isFavorite: false, year: 2025, quarter: "Q1", currency: "TWD" },
+            { fundId: null, name: "Microsoft Corp.", type: "Stock", relationship: "Direct", accountShares: 4000, carryingAmount: 1200000, ownership: 0.015, classification: "AFS", fairValue: 1250000, isFavorite: false, year: 2025, quarter: "Q1", currency: "TWD" },
+            { fundId: 7, name: "iShares Core MSCI EAFE ETF", type: "Fund", relationship: "Managed", accountShares: 3500, carryingAmount: 700000, ownership: 0.025, classification: "HTM", fairValue: 710000, isFavorite: false, year: 2025, quarter: "Q1", currency: "TWD" },
+            { fundId: null, name: "NVIDIA Corp.", type: "Stock", relationship: "Direct", accountShares: 2500, carryingAmount: 800000, ownership: 0.008, classification: "AFS", fairValue: 820000, isFavorite: false, year: 2025, quarter: "Q1", currency: "TWD" },
+            { fundId: 9, name: "Fidelity Total Market Index Fund", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1", currency: "TWD" },
+            { fundId: null, name: "Alphabet Inc.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 900000, ownership: 0.012, classification: "AFS", fairValue: 920000, isFavorite: false, year: 2024, quarter: "Q4", currency: "TWD" }
         ]
     },
     {
         id: 2,
         companyId: 2,
         items: [
-            { fundId: null, name: "JPMorgan Chase & Co.", type: "Stock", relationship: "Direct", accountShares: 8000, carryingAmount: 1200000, ownership: 0.04, classification: "AFS", fairValue: 1250000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 11, name: "BlackRock Global Allocation Fund", type: "Fund", relationship: "Managed", accountShares: 4000, carryingAmount: 800000, ownership: 0.03, classification: "HTM", fairValue: 810000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Bank of America Corp.", type: "Stock", relationship: "Direct", accountShares: 10000, carryingAmount: 400000, ownership: 0.02, classification: "AFS", fairValue: 420000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 13, name: "Fidelity Balanced Fund", type: "Fund", relationship: "Managed", accountShares: 6000, carryingAmount: 720000, ownership: 0.025, classification: "AFS", fairValue: 730000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Goldman Sachs Group Inc.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 900000, ownership: 0.015, classification: "HTM", fairValue: 910000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 15, name: "T. Rowe Price Growth Stock Fund", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Citigroup Inc.", type: "Stock", relationship: "Direct", accountShares: 5000, carryingAmount: 300000, ownership: 0.012, classification: "AFS", fairValue: 310000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 17, name: "Vanguard High Dividend Yield ETF", type: "Fund", relationship: "Managed", accountShares: 3500, carryingAmount: 525000, ownership: 0.018, classification: "HTM", fairValue: 530000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Morgan Stanley", type: "Stock", relationship: "Direct", accountShares: 2500, carryingAmount: 375000, ownership: 0.009, classification: "AFS", fairValue: 380000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 19, name: "Schwab U.S. Dividend Equity ETF", type: "Fund", relationship: "Managed", accountShares: 3000, carryingAmount: 450000, ownership: 0.015, classification: "AFS", fairValue: 460000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Wells Fargo & Co.", type: "Stock", relationship: "Direct", accountShares: 4000, carryingAmount: 600000, ownership: 0.02, classification: "AFS", fairValue: 610000, isFavorite: false, year: 2024, quarter: "Q3" }
+            { fundId: null, name: "JPMorgan Chase & Co.", type: "Stock", relationship: "Direct", accountShares: 8000, carryingAmount: 1200000, ownership: 0.04, classification: "AFS", fairValue: 1250000, isFavorite: false, year: 2025, quarter: "Q1", currency: "HKD" },
+            { fundId: 11, name: "BlackRock Global Allocation Fund", type: "Fund", relationship: "Managed", accountShares: 4000, carryingAmount: 800000, ownership: 0.03, classification: "HTM", fairValue: 810000, isFavorite: false, year: 2025, quarter: "Q1", currency: "HKD" },
+            { fundId: null, name: "Bank of America Corp.", type: "Stock", relationship: "Direct", accountShares: 10000, carryingAmount: 400000, ownership: 0.02, classification: "AFS", fairValue: 420000, isFavorite: false, year: 2025, quarter: "Q1", currency: "HKD" },
+            { fundId: 13, name: "Fidelity Balanced Fund", type: "Fund", relationship: "Managed", accountShares: 6000, carryingAmount: 720000, ownership: 0.025, classification: "AFS", fairValue: 730000, isFavorite: false, year: 2025, quarter: "Q1", currency: "HKD" },
+            { fundId: null, name: "Goldman Sachs Group Inc.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 900000, ownership: 0.015, classification: "HTM", fairValue: 910000, isFavorite: false, year: 2025, quarter: "Q1", currency: "HKD" },
+            { fundId: 15, name: "T. Rowe Price Growth Stock Fund", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1", currency: "HKD" },
+            { fundId: null, name: "Citigroup Inc.", type: "Stock", relationship: "Direct", accountShares: 5000, carryingAmount: 300000, ownership: 0.012, classification: "AFS", fairValue: 310000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 17, name: "Vanguard High Dividend Yield ETF", type: "Fund", relationship: "Managed", accountShares: 3500, carryingAmount: 525000, ownership: 0.018, classification: "HTM", fairValue: 530000, isFavorite: false, year: 2025, quarter: "Q1", currency: "HKD" },
+            { fundId: null, name: "Morgan Stanley", type: "Stock", relationship: "Direct", accountShares: 2500, carryingAmount: 375000, ownership: 0.009, classification: "AFS", fairValue: 380000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 19, name: "Schwab U.S. Dividend Equity ETF", type: "Fund", relationship: "Managed", accountShares: 3000, carryingAmount: 450000, ownership: 0.015, classification: "AFS", fairValue: 460000, isFavorite: false, year: 2025, quarter: "Q1", currency: "HKD" },
+            { fundId: null, name: "Wells Fargo & Co.", type: "Stock", relationship: "Direct", accountShares: 4000, carryingAmount: 600000, ownership: 0.02, classification: "AFS", fairValue: 610000, isFavorite: false, year: 2024, quarter: "Q3", currency: "USD" }
         ]
     },
     {
         id: 3,
         companyId: 3,
         items: [
-            { fundId: null, name: "NextEra Energy Inc.", type: "Stock", relationship: "Direct", accountShares: 5000, carryingAmount: 350000, ownership: 0.03, classification: "AFS", fairValue: 360000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 21, name: "Invesco Solar ETF", type: "Fund", relationship: "Managed", accountShares: 4000, carryingAmount: 200000, ownership: 0.02, classification: "HTM", fairValue: 210000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "First Solar Inc.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 240000, ownership: 0.015, classification: "AFS", fairValue: 250000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 23, name: "ARK Clean Energy Fund", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 300000, ownership: 0.01, classification: "AFS", fairValue: 310000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Enphase Energy Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 280000, ownership: 0.008, classification: "HTM", fairValue: 290000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 25, name: "iShares Global Clean Energy ETF", type: "Fund", relationship: "Managed", accountShares: 3500, carryingAmount: 420000, ownership: 0.012, classification: "AFS", fairValue: 430000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Vestas Wind Systems A/S", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 180000, ownership: 0.007, classification: "AFS", fairValue: 185000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 27, name: "First Trust NASDAQ Clean Edge Green Energy Index Fund", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 260000, ownership: 0.009, classification: "HTM", fairValue: 270000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "SolarEdge Technologies Inc.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 150000, ownership: 0.005, classification: "AFS", fairValue: 155000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Ormat Technologies Inc.", type: "Stock", relationship: "Direct", accountShares: 1200, carryingAmount: 144000, ownership: 0.006, classification: "AFS", fairValue: 148000, isFavorite: false, year: 2024, quarter: "Q2" }
+            { fundId: null, name: "NextEra Energy Inc.", type: "Stock", relationship: "Direct", accountShares: 5000, carryingAmount: 350000, ownership: 0.03, classification: "AFS", fairValue: 360000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 21, name: "Invesco Solar ETF", type: "Fund", relationship: "Managed", accountShares: 4000, carryingAmount: 200000, ownership: 0.02, classification: "HTM", fairValue: 210000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "First Solar Inc.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 240000, ownership: 0.015, classification: "AFS", fairValue: 250000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 23, name: "ARK Clean Energy Fund", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 300000, ownership: 0.01, classification: "AFS", fairValue: 310000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Enphase Energy Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 280000, ownership: 0.008, classification: "HTM", fairValue: 290000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 25, name: "iShares Global Clean Energy ETF", type: "Fund", relationship: "Managed", accountShares: 3500, carryingAmount: 420000, ownership: 0.012, classification: "AFS", fairValue: 430000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Vestas Wind Systems A/S", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 180000, ownership: 0.007, classification: "AFS", fairValue: 185000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 27, name: "First Trust NASDAQ Clean Edge Green Energy Index Fund", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 260000, ownership: 0.009, classification: "HTM", fairValue: 270000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "SolarEdge Technologies Inc.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 150000, ownership: 0.005, classification: "AFS", fairValue: 155000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Ormat Technologies Inc.", type: "Stock", relationship: "Direct", accountShares: 1200, carryingAmount: 144000, ownership: 0.006, classification: "AFS", fairValue: 148000, isFavorite: false, year: 2024, quarter: "Q2", currency: "USD" }
         ]
     },
     {
         id: 4,
         companyId: 4,
         items: [
-            { fundId: null, name: "IonQ", type: "Stock", relationship: "Direct", accountShares: 6000, carryingAmount: 360000, ownership: 0.025, classification: "AFS", fairValue: 370000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Rigetti Computing", type: "Stock", relationship: "Direct", accountShares: 4000, carryingAmount: 280000, ownership: 0.018, classification: "AFS", fairValue: 290000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 31, name: "ARK Innovation ETF", type: "Fund", relationship: "Managed", accountShares: 3000, carryingAmount: 450000, ownership: 0.015, classification: "HTM", fairValue: 460000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Honeywell International Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 33, name: "Vanguard Information Technology ETF", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 625000, ownership: 0.012, classification: "AFS", fairValue: 630000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "IBM", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 270000, ownership: 0.008, classification: "HTM", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 35, name: "iShares U.S. Technology ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "AFS", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "D-Wave Quantum Inc.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 150000, ownership: 0.005, classification: "AFS", fairValue: 155000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Quantum Computing Inc.", type: "Stock", relationship: "Direct", accountShares: 800, carryingAmount: 120000, ownership: 0.004, classification: "AFS", fairValue: 125000, isFavorite: false, year: 2024, quarter: "Q1" }
+            { fundId: null, name: "IonQ", type: "Stock", relationship: "Direct", accountShares: 6000, carryingAmount: 360000, ownership: 0.025, classification: "AFS", fairValue: 370000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Rigetti Computing", type: "Stock", relationship: "Direct", accountShares: 4000, carryingAmount: 280000, ownership: 0.018, classification: "AFS", fairValue: 290000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 31, name: "ARK Innovation ETF", type: "Fund", relationship: "Managed", accountShares: 3000, carryingAmount: 450000, ownership: 0.015, classification: "HTM", fairValue: 460000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Honeywell International Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 33, name: "Vanguard Information Technology ETF", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 625000, ownership: 0.012, classification: "AFS", fairValue: 630000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "IBM", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 270000, ownership: 0.008, classification: "HTM", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 35, name: "iShares U.S. Technology ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "AFS", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "D-Wave Quantum Inc.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 150000, ownership: 0.005, classification: "AFS", fairValue: 155000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Quantum Computing Inc.", type: "Stock", relationship: "Direct", accountShares: 800, carryingAmount: 120000, ownership: 0.004, classification: "AFS", fairValue: 125000, isFavorite: false, year: 2024, quarter: "Q1", currency: "USD" }
         ]
     },
     {
         id: 5,
         companyId: 5,
         items: [
-            { fundId: null, name: "Moderna Inc.", type: "Stock", relationship: "Direct", accountShares: 5000, carryingAmount: 750000, ownership: 0.02, classification: "AFS", fairValue: 760000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Teladoc Health", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 450000, ownership: 0.015, classification: "AFS", fairValue: 460000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 39, name: "Vanguard Health Care ETF", type: "Fund", relationship: "Managed", accountShares: 4000, carryingAmount: 800000, ownership: 0.018, classification: "HTM", fairValue: 810000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Johnson & Johnson", type: "Stock", relationship: "Direct", accountShares: 2500, carryingAmount: 500000, ownership: 0.01, classification: "AFS", fairValue: 510000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 41, name: "iShares U.S. Healthcare ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 400000, ownership: 0.012, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Pfizer Inc.", type: "Stock", relationship: "Direct", accountShares: 3500, carryingAmount: 525000, ownership: 0.014, classification: "HTM", fairValue: 530000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 43, name: "Health Care Select Sector SPDR Fund", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 300000, ownership: 0.008, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Intuitive Surgical Inc.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 250000, ownership: 0.005, classification: "AFS", fairValue: 255000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Merck & Co. Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2024, quarter: "Q4" }
+            { fundId: null, name: "Moderna Inc.", type: "Stock", relationship: "Direct", accountShares: 5000, carryingAmount: 750000, ownership: 0.02, classification: "AFS", fairValue: 760000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Teladoc Health", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 450000, ownership: 0.015, classification: "AFS", fairValue: 460000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 39, name: "Vanguard Health Care ETF", type: "Fund", relationship: "Managed", accountShares: 4000, carryingAmount: 800000, ownership: 0.018, classification: "HTM", fairValue: 810000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Johnson & Johnson", type: "Stock", relationship: "Direct", accountShares: 2500, carryingAmount: 500000, ownership: 0.01, classification: "AFS", fairValue: 510000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 41, name: "iShares U.S. Healthcare ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 400000, ownership: 0.012, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Pfizer Inc.", type: "Stock", relationship: "Direct", accountShares: 3500, carryingAmount: 525000, ownership: 0.014, classification: "HTM", fairValue: 530000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 43, name: "Health Care Select Sector SPDR Fund", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 300000, ownership: 0.008, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Intuitive Surgical Inc.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 250000, ownership: 0.005, classification: "AFS", fairValue: 255000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Merck & Co. Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2024, quarter: "Q4", currency: "USD" }
         ]
     },
     {
         id: 6,
         companyId: 6,
         items: [
-            { fundId: null, name: "Boeing Co.", type: "Stock", relationship: "Direct", accountShares: 4000, carryingAmount: 600000, ownership: 0.018, classification: "AFS", fairValue: 610000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Rocket Lab USA", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 450000, ownership: 0.015, classification: "AFS", fairValue: 460000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 47, name: "SPDR S&P Aerospace & Defense ETF", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 500000, ownership: 0.012, classification: "HTM", fairValue: 510000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Lockheed Martin Corp.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 49, name: "iShares U.S. Aerospace & Defense ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "AFS", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Northrop Grumman Corp.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 300000, ownership: 0.008, classification: "HTM", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 51, name: "Invesco Aerospace & Defense ETF", type: "Fund", relationship: "Managed", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Raytheon Technologies Corp.", type: "Stock", relationship: "Direct", accountShares: 1800, carryingAmount: 360000, ownership: 0.009, classification: "AFS", fairValue: 370000, isFavorite: false, year: 2024, quarter: "Q3" }
+            { fundId: null, name: "Boeing Co.", type: "Stock", relationship: "Direct", accountShares: 4000, carryingAmount: 600000, ownership: 0.018, classification: "AFS", fairValue: 610000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Rocket Lab USA", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 450000, ownership: 0.015, classification: "AFS", fairValue: 460000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 47, name: "SPDR S&P Aerospace & Defense ETF", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 500000, ownership: 0.012, classification: "HTM", fairValue: 510000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Lockheed Martin Corp.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 49, name: "iShares U.S. Aerospace & Defense ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "AFS", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Northrop Grumman Corp.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 300000, ownership: 0.008, classification: "HTM", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 51, name: "Invesco Aerospace & Defense ETF", type: "Fund", relationship: "Managed", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Raytheon Technologies Corp.", type: "Stock", relationship: "Direct", accountShares: 1800, carryingAmount: 360000, ownership: 0.009, classification: "AFS", fairValue: 370000, isFavorite: false, year: 2024, quarter: "Q3", currency: "USD" }
         ]
     },
     {
         id: 7,
         companyId: 7,
         items: [
-            { fundId: null, name: "FedEx Corp.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 450000, ownership: 0.015, classification: "AFS", fairValue: 460000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "United Parcel Service Inc.", type: "Stock", relationship: "Direct", accountShares: 2500, carryingAmount: 400000, ownership: 0.012, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 54, name: "iShares Transportation Average ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.01, classification: "HTM", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "C.H. Robinson Worldwide Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 300000, ownership: 0.008, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 56, name: "SPDR S&P Transportation ETF", type: "Fund", relationship: "Managed", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "XPO Logistics Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 280000, ownership: 0.007, classification: "HTM", fairValue: 285000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 58, name: "Invesco Dynamic Transportation ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 270000, ownership: 0.006, classification: "AFS", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "J.B. Hunt Transport Services Inc.", type: "Stock", relationship: "Direct", accountShares: 1200, carryingAmount: 240000, ownership: 0.006, classification: "AFS", fairValue: 245000, isFavorite: false, year: 2024, quarter: "Q2" }
+            { fundId: null, name: "FedEx Corp.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 450000, ownership: 0.015, classification: "AFS", fairValue: 460000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "United Parcel Service Inc.", type: "Stock", relationship: "Direct", accountShares: 2500, carryingAmount: 400000, ownership: 0.012, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 54, name: "iShares Transportation Average ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.01, classification: "HTM", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "C.H. Robinson Worldwide Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 300000, ownership: 0.008, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 56, name: "SPDR S&P Transportation ETF", type: "Fund", relationship: "Managed", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "XPO Logistics Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 280000, ownership: 0.007, classification: "HTM", fairValue: 285000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 58, name: "Invesco Dynamic Transportation ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 270000, ownership: 0.006, classification: "AFS", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "J.B. Hunt Transport Services Inc.", type: "Stock", relationship: "Direct", accountShares: 1200, carryingAmount: 240000, ownership: 0.006, classification: "AFS", fairValue: 245000, isFavorite: false, year: 2024, quarter: "Q2", currency: "USD" }
         ]
     },
     {
         id: 8,
         companyId: 8,
         items: [
-            { fundId: null, name: "Palo Alto Networks Inc.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 600000, ownership: 0.015, classification: "AFS", fairValue: 610000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "CrowdStrike Holdings Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 61, name: "Global X Cybersecurity ETF", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 375000, ownership: 0.012, classification: "HTM", fairValue: 380000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Fortinet Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 300000, ownership: 0.008, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 63, name: "First Trust NASDAQ Cybersecurity ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "AFS", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Zscaler Inc.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "HTM", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 65, name: "iShares Cybersecurity and Tech ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 270000, ownership: 0.007, classification: "AFS", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Check Point Software Technologies Ltd.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2024, quarter: "Q1" }
+            { fundId: null, name: "Palo Alto Networks Inc.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 600000, ownership: 0.015, classification: "AFS", fairValue: 610000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "CrowdStrike Holdings Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 61, name: "Global X Cybersecurity ETF", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 375000, ownership: 0.012, classification: "HTM", fairValue: 380000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Fortinet Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 300000, ownership: 0.008, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 63, name: "First Trust NASDAQ Cybersecurity ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "AFS", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Zscaler Inc.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "HTM", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 65, name: "iShares Cybersecurity and Tech ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 270000, ownership: 0.007, classification: "AFS", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Check Point Software Technologies Ltd.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2024, quarter: "Q1", currency: "USD" }
         ]
     },
     {
         id: 9,
         companyId: 9,
         items: [
-            { fundId: null, name: "Rivian Automotive Inc.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 360000, ownership: 0.015, classification: "AFS", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Lyft Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 280000, ownership: 0.01, classification: "AFS", fairValue: 285000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 68, name: "ARK Autonomous Technology & Robotics ETF", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 375000, ownership: 0.012, classification: "HTM", fairValue: 380000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Uber Technologies Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 300000, ownership: 0.008, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 70, name: "Invesco Electric Vehicle Metals ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "AFS", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Li Auto Inc.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "HTM", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 72, name: "Global X Autonomous & Electric Vehicles ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 270000, ownership: 0.007, classification: "AFS", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "NIO Inc.", type: "Stock", relationship: "Direct", accountShares: 1200, carryingAmount: 180000, ownership: 0.006, classification: "AFS", fairValue: 185000, isFavorite: false, year: 2024, quarter: "Q4" }
+            { fundId: null, name: "Rivian Automotive Inc.", type: "Stock", relationship: "Direct", accountShares: 3000, carryingAmount: 360000, ownership: 0.015, classification: "AFS", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Lyft Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 280000, ownership: 0.01, classification: "AFS", fairValue: 285000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 68, name: "ARK Autonomous Technology & Robotics ETF", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 375000, ownership: 0.012, classification: "HTM", fairValue: 380000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Uber Technologies Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 300000, ownership: 0.008, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 70, name: "Invesco Electric Vehicle Metals ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "AFS", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Li Auto Inc.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "HTM", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 72, name: "Global X Autonomous & Electric Vehicles ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 270000, ownership: 0.007, classification: "AFS", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "NIO Inc.", type: "Stock", relationship: "Direct", accountShares: 1200, carryingAmount: 180000, ownership: 0.006, classification: "AFS", fairValue: 185000, isFavorite: false, year: 2024, quarter: "Q4", currency: "USD" }
         ]
     },
     {
         id: 10,
         companyId: 10,
         items: [
-            { fundId: null, name: "Deere & Co.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Corteva Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 300000, ownership: 0.008, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 75, name: "Invesco DB Agriculture Fund", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "HTM", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Archer-Daniels-Midland Co.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 77, name: "Global X AgTech & Food Innovation ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 270000, ownership: 0.007, classification: "AFS", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Bunge Ltd.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 180000, ownership: 0.004, classification: "HTM", fairValue: 185000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 79, name: "iShares MSCI Global Agriculture Producers ETF", type: "Fund", relationship: "Managed", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Nutrien Ltd.", type: "Stock", relationship: "Direct", accountShares: 800, carryingAmount: 160000, ownership: 0.004, classification: "AFS", fairValue: 165000, isFavorite: false, year: 2024, quarter: "Q3" }
+            { fundId: null, name: "Deere & Co.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Corteva Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 300000, ownership: 0.008, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 75, name: "Invesco DB Agriculture Fund", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "HTM", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Archer-Daniels-Midland Co.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 77, name: "Global X AgTech & Food Innovation ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 270000, ownership: 0.007, classification: "AFS", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Bunge Ltd.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 180000, ownership: 0.004, classification: "HTM", fairValue: 185000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 79, name: "iShares MSCI Global Agriculture Producers ETF", type: "Fund", relationship: "Managed", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Nutrien Ltd.", type: "Stock", relationship: "Direct", accountShares: 800, carryingAmount: 160000, ownership: 0.004, classification: "AFS", fairValue: 165000, isFavorite: false, year: 2024, quarter: "Q3", currency: "USD" }
         ]
     },
     {
         id: 11,
         companyId: 11,
         items: [
-            { fundId: null, name: "Walmart Inc.", type: "Stock", relationship: "Direct", accountShares: 4000, carryingAmount: 600000, ownership: 0.015, classification: "AFS", fairValue: 610000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Shopify Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 82, name: "SPDR S&P Retail ETF", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 375000, ownership: 0.012, classification: "HTM", fairValue: 380000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Target Corp.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 300000, ownership: 0.008, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 84, name: "iShares U.S. Consumer Services ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "AFS", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Costco Wholesale Corp.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 250000, ownership: 0.005, classification: "HTM", fairValue: 255000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 86, name: "Invesco Dynamic Retail ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 270000, ownership: 0.007, classification: "AFS", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Dollar General Corp.", type: "Stock", relationship: "Direct", accountShares: 1200, carryingAmount: 240000, ownership: 0.006, classification: "AFS", fairValue: 245000, isFavorite: false, year: 2024, quarter: "Q2" }
+            { fundId: null, name: "Walmart Inc.", type: "Stock", relationship: "Direct", accountShares: 4000, carryingAmount: 600000, ownership: 0.015, classification: "AFS", fairValue: 610000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Shopify Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 400000, ownership: 0.01, classification: "AFS", fairValue: 410000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 82, name: "SPDR S&P Retail ETF", type: "Fund", relationship: "Managed", accountShares: 2500, carryingAmount: 375000, ownership: 0.012, classification: "HTM", fairValue: 380000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Target Corp.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 300000, ownership: 0.008, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 84, name: "iShares U.S. Consumer Services ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "AFS", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Costco Wholesale Corp.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 250000, ownership: 0.005, classification: "HTM", fairValue: 255000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 86, name: "Invesco Dynamic Retail ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 270000, ownership: 0.007, classification: "AFS", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Dollar General Corp.", type: "Stock", relationship: "Direct", accountShares: 1200, carryingAmount: 240000, ownership: 0.006, classification: "AFS", fairValue: 245000, isFavorite: false, year: 2024, quarter: "Q2", currency: "USD" }
         ]
     },
     {
         id: 12,
         companyId: 12,
         items: [
-            { fundId: null, name: "Renewable Energy Group Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 300000, ownership: 0.01, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Gevo Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 225000, ownership: 0.008, classification: "AFS", fairValue: 230000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 89, name: "Invesco WilderHill Clean Energy ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "HTM", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Neste Oyj", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 91, name: "First Trust Global Wind Energy ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 270000, ownership: 0.007, classification: "AFS", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Aemetis Inc.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 150000, ownership: 0.004, classification: "HTM", fairValue: 155000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 93, name: "iShares Clean Energy ETF", type: "Fund", relationship: "Managed", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Plug Power Inc.", type: "Stock", relationship: "Direct", accountShares: 800, carryingAmount: 120000, ownership: 0.004, classification: "AFS", fairValue: 125000, isFavorite: false, year: 2024, quarter: "Q1" }
+            { fundId: null, name: "Renewable Energy Group Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 300000, ownership: 0.01, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Gevo Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 225000, ownership: 0.008, classification: "AFS", fairValue: 230000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 89, name: "Invesco WilderHill Clean Energy ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "HTM", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Neste Oyj", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 91, name: "First Trust Global Wind Energy ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 270000, ownership: 0.007, classification: "AFS", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Aemetis Inc.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 150000, ownership: 0.004, classification: "HTM", fairValue: 155000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 93, name: "iShares Clean Energy ETF", type: "Fund", relationship: "Managed", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Plug Power Inc.", type: "Stock", relationship: "Direct", accountShares: 800, carryingAmount: 120000, ownership: 0.004, classification: "AFS", fairValue: 125000, isFavorite: false, year: 2024, quarter: "Q1", currency: "USD" }
         ]
     },
     {
         id: 13,
         companyId: 13,
         items: [
-            { fundId: null, name: "Coursera Inc.", type: "Stock", relationship: "Direct", accountShares: 2500, carryingAmount: 375000, ownership: 0.012, classification: "AFS", fairValue: 380000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Duolingo Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 300000, ownership: 0.01, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 96, name: "ARK Next Generation Internet ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "HTM", fairValue: 365000, islands: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Chegg Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 225000, ownership: 0.008, classification: "AFS", fairValue: 230000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 98, name: "Invesco Dynamic Software ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 270000, ownership: 0.007, classification: "AFS", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "2U Inc.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 150000, ownership: 0.005, classification: "HTM", fairValue: 155000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: 100, name: "iShares Future Tech ETF", type: "Fund", relationship: "Managed", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1" },
-            { fundId: null, name: "Udemy Inc.", type: "Stock", relationship: "Direct", accountShares: 800, carryingAmount: 120000, ownership: 0.004, classification: "AFS", fairValue: 125000, isFavorite: false, year: 2024, quarter: "Q4" }
+            { fundId: null, name: "Coursera Inc.", type: "Stock", relationship: "Direct", accountShares: 2500, carryingAmount: 375000, ownership: 0.012, classification: "AFS", fairValue: 380000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Duolingo Inc.", type: "Stock", relationship: "Direct", accountShares: 2000, carryingAmount: 300000, ownership: 0.01, classification: "AFS", fairValue: 305000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 96, name: "ARK Next Generation Internet ETF", type: "Fund", relationship: "Managed", accountShares: 2000, carryingAmount: 360000, ownership: 0.009, classification: "HTM", fairValue: 365000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Chegg Inc.", type: "Stock", relationship: "Direct", accountShares: 1500, carryingAmount: 225000, ownership: 0.008, classification: "AFS", fairValue: 230000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 98, name: "Invesco Dynamic Software ETF", type: "Fund", relationship: "Managed", accountShares: 1500, carryingAmount: 270000, ownership: 0.007, classification: "AFS", fairValue: 275000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "2U Inc.", type: "Stock", relationship: "Direct", accountShares: 1000, carryingAmount: 150000, ownership: 0.005, classification: "HTM", fairValue: 155000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: 100, name: "iShares Future Tech ETF", type: "Fund", relationship: "Managed", accountShares: 1000, carryingAmount: 200000, ownership: 0.005, classification: "AFS", fairValue: 205000, isFavorite: false, year: 2025, quarter: "Q1", currency: "USD" },
+            { fundId: null, name: "Udemy Inc.", type: "Stock", relationship: "Direct", accountShares: 800, carryingAmount: 120000, ownership: 0.004, classification: "AFS", fairValue: 125000, isFavorite: false, year: 2024, quarter: "Q4", currency: "USD" }
         ]
     }
 ];
@@ -526,7 +526,8 @@ export const companyDetailsData = [
         headquarters: "San Francisco, CA, USA",
         email: "contact@acme.com",
         phone: "+1-415-555-0101",
-        address: "123 Tech St, San Francisco, CA 94105"
+        address: "123 Tech St, San Francisco, CA 94105",
+        investmentPreference: ["Stock", "Venture Capital", "Fund"]
     },
     {
         id: 2,
@@ -537,7 +538,8 @@ export const companyDetailsData = [
         headquarters: "New York, NY, USA",
         email: "info@bluehorizon.com",
         phone: "+1-212-555-0202",
-        address: "456 Finance Ave, New York, NY 10001"
+        address: "456 Finance Ave, New York, NY 10001",
+        investmentPreference: ["Stock", "Fund", "Private Equity"]
     },
     {
         id: 3,
@@ -548,7 +550,8 @@ export const companyDetailsData = [
         headquarters: "Austin, TX, USA",
         email: "support@greenenergy.com",
         phone: "+1-512-555-0303",
-        address: "789 Energy Blvd, Austin, TX 78701"
+        address: "789 Energy Blvd, Austin, TX 78701",
+        investmentPreference: ["Venture Capital", "Fund", "Alternative"]
     },
     {
         id: 4,
@@ -559,7 +562,8 @@ export const companyDetailsData = [
         headquarters: "Boston, MA, USA",
         email: "info@quantumdynamics.com",
         phone: "+1-617-555-0404",
-        address: "101 Quantum Rd, Boston, MA 02115"
+        address: "101 Quantum Rd, Boston, MA 02115",
+        investmentPreference: ["Venture Capital", "Fund", "Private Equity"]
     },
     {
         id: 5,
@@ -570,7 +574,8 @@ export const companyDetailsData = [
         headquarters: "Chicago, IL, USA",
         email: "contact@healthinnovations.com",
         phone: "+1-312-555-0505",
-        address: "234 Health Dr, Chicago, IL 60601"
+        address: "234 Health Dr, Chicago, IL 60601",
+        investmentPreference: ["Stock", "Private Equity", "Fund"]
     },
     {
         id: 6,
@@ -581,7 +586,8 @@ export const companyDetailsData = [
         headquarters: "Seattle, WA, USA",
         email: "info@skylineaerospace.com",
         phone: "+1-206-555-0606",
-        address: "345 Aerospace Way, Seattle, WA 98101"
+        address: "345 Aerospace Way, Seattle, WA 98101",
+        investmentPreference: ["Stock", "Private Equity", "Bond"]
     },
     {
         id: 7,
@@ -592,7 +598,8 @@ export const companyDetailsData = [
         headquarters: "Miami, FL, USA",
         email: "contact@globallogistics.com",
         phone: "+1-305-555-0707",
-        address: "456 Logistics Ln, Miami, FL 33101"
+        address: "456 Logistics Ln, Miami, FL 33101",
+        investmentPreference: ["Bond", "Fund", "Alternative"]
     },
     {
         id: 8,
@@ -603,7 +610,8 @@ export const companyDetailsData = [
         headquarters: "Palo Alto, CA, USA",
         email: "support@cybershield.com",
         phone: "+1-650-555-0808",
-        address: "567 Cyber St, Palo Alto, CA 94301"
+        address: "567 Cyber St, Palo Alto, CA 94301",
+        investmentPreference: ["Venture Capital", "Fund", "Stock"]
     },
     {
         id: 9,
@@ -614,7 +622,8 @@ export const companyDetailsData = [
         headquarters: "Los Angeles, CA, USA",
         email: "info@urbanmobility.com",
         phone: "+1-213-555-0909",
-        address: "678 Mobility Ave, Los Angeles, CA 90001"
+        address: "678 Mobility Ave, Los Angeles, CA 90001",
+        investmentPreference: ["Venture Capital", "Alternative", "Fund"]
     },
     {
         id: 10,
@@ -625,7 +634,8 @@ export const companyDetailsData = [
         headquarters: "Des Moines, IA, USA",
         email: "contact@agritechventures.com",
         phone: "+1-515-555-1010",
-        address: "789 Agri St, Des Moines, IA 50309"
+        address: "789 Agri St, Des Moines, IA 50309",
+        investmentPreference: ["Alternative", "Fund", "Venture Capital"]
     },
     {
         id: 11,
@@ -636,7 +646,8 @@ export const companyDetailsData = [
         headquarters: "Dallas, TX, USA",
         email: "info@smartretail.com",
         phone: "+1-214-555-1111",
-        address: "890 Retail Rd, Dallas, TX 75201"
+        address: "890 Retail Rd, Dallas, TX 75201",
+        investmentPreference: ["Stock", "Private Equity", "Fund"]
     },
     {
         id: 12,
@@ -647,7 +658,8 @@ export const companyDetailsData = [
         headquarters: "Denver, CO, USA",
         email: "support@bioenergypartners.com",
         phone: "+1-303-555-1212",
-        address: "901 Bioenergy Blvd, Denver, CO 80202"
+        address: "901 Bioenergy Blvd, Denver, CO 80202",
+        investmentPreference: ["Alternative", "Venture Capital", "Fund"]
     },
     {
         id: 13,
@@ -658,7 +670,8 @@ export const companyDetailsData = [
         headquarters: "San Diego, CA, USA",
         email: "info@edtechinnovators.com",
         phone: "+1-619-555-1313",
-        address: "234 Education Dr, San Diego, CA 92101"
+        address: "234 Education Dr, San Diego, CA 92101",
+        investmentPreference: ["Venture Capital", "Fund", "Alternative"]
     }
 ];
 

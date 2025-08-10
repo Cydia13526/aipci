@@ -2,12 +2,12 @@ import { FaGlobe } from 'react-icons/fa';
 import React from "react";
 import { useLanguage } from "../../context/LanguageContext";
 import { useNavigate, useLocation } from 'react-router-dom';
-import {Company} from "../../types/Company";
+import { Company } from "../../types/Company";
 
 interface MainSideBarProps {
     isSidebarExpanded: boolean;
     toggleSidebar: () => void;
-    setSelectedCompany: (company: Company | null) => void;
+    setSelectedCompany: (company: Company | null) => void; // Already correct, no change needed here
 }
 
 const FaGlobeIcon = FaGlobe as React.ComponentType<{ size?: number }>;

@@ -13,6 +13,7 @@ export type Holding = {
     isFavorite: boolean;
     year: number;
     quarter: string;
+    currency: string;
 };
 
 export type HoldingsData = {
@@ -116,6 +117,7 @@ export type Company = {
     phone?: string;
     address?: string;
     country?: string;
+    investmentPreference?: string[];
     investmentExperience?: InvestmentExperience;
     capitalStructure?: CapitalStructure;
     holdings?: HoldingsData;

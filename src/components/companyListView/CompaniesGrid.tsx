@@ -3,14 +3,10 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-quartz.css';
 import { ColDef } from 'ag-grid-community';
-import {Company, HoldingsData} from '../../types/Company';
+import { Company, HoldingsData } from '../../types/Company';
 import { CompanyListViewFilter } from '../../types/CompanyListViewFilter';
 import { Language, translations } from '../../types/Language';
-import {
-    getCapitalStructureByCompanyId,
-    getHoldingsByCompanyId,
-    getInvestmentExperienceByCompanyId
-} from "../../services/CompanyService";
+import { getCapitalStructureByCompanyId, getHoldingsByCompanyId, getInvestmentExperienceByCompanyId } from '../../services/CompanyService';
 
 interface CompanyGridProps {
     companies: Company[];
@@ -29,16 +25,27 @@ const CompanyGrid: React.FC<CompanyGridProps> = ({
                                                      language,
                                                      selectedCompanies,
                                                      setSelectedCompanies,
-                                                     setEditCompany
+                                                     setEditCompany,
                                                  }) => {
     const gridRef = useRef<AgGridReact<Company>>(null);
     const t = translations[language];
+
+    const investmentPreferenceColors: Record<string, string> = {
+        Stock: 'bg-blue-100 text-blue-800',
+        Fund: 'bg-green-100 text-green-800',
+        Alternative: 'bg-purple-100 text-purple-800',
+        'Venture Capital': 'bg-yellow-100 text-yellow-800',
+        'Private Equity': 'bg-indigo-100 text-indigo-800',
+        Bond: 'bg-red-100 text-red-800',
+        'Real Estate': 'bg-gray-100 text-gray-800',
+    };
 
     const filteredCompanies = useMemo(() => {
         return companies.filter((company) => {
             company.investmentExperience = getInvestmentExperienceByCompanyId(company?.id as number);
             company.capitalStructure = getCapitalStructureByCompanyId(company?.id as number);
             company.holdings = getHoldingsByCompanyId(company.id) as HoldingsData;
+
             const marketCapMin = filters.marketCap?.min != null ? parseFloat(String(filters.marketCap.min)) : NaN;
             const marketCapMax = filters.marketCap?.max != null ? parseFloat(String(filters.marketCap.max)) : NaN;
             const totalEquityMin = filters.totalEquity?.min != null ? parseFloat(String(filters.totalEquity.min)) : NaN;
@@ -48,10 +55,20 @@ const CompanyGrid: React.FC<CompanyGridProps> = ({
             const debtToEquityRatioMin = filters.debtToEquityRatio?.min != null ? parseFloat(String(filters.debtToEquityRatio.min)) : NaN;
             const debtToEquityRatioMax = filters.debtToEquityRatio?.max != null ? parseFloat(String(filters.debtToEquityRatio.max)) : NaN;
 
+            const matchesIndustry =
+                !filters?.industry?.length ||
+                filters.industry.includes('All') ||
+                filters.industry.some((pref) => company.industry?.includes(pref) ?? false);
+
+            const matchesInvestmentPreference =
+                !filters?.investmentPreference?.length ||
+                filters?.investmentPreference?.includes('All') ||
+                filters?.investmentPreference?.some((pref) => company.investmentPreference?.includes(pref || "All")?? false);
+
             return (
-                company.name.toLowerCase().includes(filters.search?.toLowerCase() || '') &&
-                (filters.industry == null || filters.industry === '' || company.industry?.toLowerCase() === filters.industry.toLowerCase()) &&
-                (filters.strategy == null || filters.strategy === '' || company.investmentExperience?.strategy.toLowerCase() === filters.strategy.toLowerCase()) &&
+                company.name?.toLowerCase()?.includes(filters.search?.toLowerCase() ?? '') &&
+                matchesIndustry &&
+                (filters.strategy === '' || (typeof filters.strategy === 'string' && company.investmentExperience?.strategy?.toLowerCase() === filters.strategy.toLowerCase())) &&
                 (filters.marketCap?.min == null || filters.marketCap.min === '' || (!isNaN(marketCapMin) && (company.marketCap || 0) >= marketCapMin)) &&
                 (filters.marketCap?.max == null || filters.marketCap.max === '' || (!isNaN(marketCapMax) && (company.marketCap || 0) <= marketCapMax)) &&
                 (filters.totalEquity?.min == null || filters.totalEquity.min === '' || (!isNaN(totalEquityMin) && (company.capitalStructure?.totalEquity || 0) >= totalEquityMin)) &&
@@ -59,16 +76,15 @@ const CompanyGrid: React.FC<CompanyGridProps> = ({
                 (filters.totalDebt?.min == null || filters.totalDebt.min === '' || (!isNaN(totalDebtMin) && (company.capitalStructure?.totalDebt || 0) >= totalDebtMin)) &&
                 (filters.totalDebt?.max == null || filters.totalDebt.max === '' || (!isNaN(totalDebtMax) && (company.capitalStructure?.totalDebt || 0) <= totalDebtMax)) &&
                 (filters.debtToEquityRatio?.min == null || filters.debtToEquityRatio.min === '' || (!isNaN(debtToEquityRatioMin) && (company.capitalStructure?.debtToEquityRatio || 0) >= debtToEquityRatioMin)) &&
-                (filters.debtToEquityRatio?.max == null || filters.debtToEquityRatio.max === '' || (!isNaN(debtToEquityRatioMax) && (company.capitalStructure?.debtToEquityRatio || 0) <= debtToEquityRatioMax))
+                (filters.debtToEquityRatio?.max == null || filters.debtToEquityRatio.max === '' || (!isNaN(debtToEquityRatioMax) && (company.capitalStructure?.debtToEquityRatio || 0) <= debtToEquityRatioMax)) &&
+                matchesInvestmentPreference
             );
         });
     }, [companies, filters]);
 
     const handleSelectCompany = (id: number) => {
         setSelectedCompanies((prev) =>
-            prev.includes(id)
-                ? prev.filter((companyId) => companyId !== id)
-                : [...prev, id]
+            prev.includes(id) ? prev.filter((companyId) => companyId !== id) : [...prev, id]
         );
     };
 
@@ -100,10 +116,7 @@ const CompanyGrid: React.FC<CompanyGridProps> = ({
                 <div className="flex items-center justify-center h-full">
                     <input
                         type="checkbox"
-                        checked={
-                            selectedCompanies.length === filteredCompanies.length &&
-                            filteredCompanies.length > 0
-                        }
+                        checked={selectedCompanies.length === filteredCompanies.length && filteredCompanies.length > 0}
                         onChange={(e) => handleSelectAll(e.target.checked)}
                         aria-label={t["Select all companies"]}
                     />
@@ -137,48 +150,65 @@ const CompanyGrid: React.FC<CompanyGridProps> = ({
             headerName: t["Industry"],
             field: 'industry',
             minWidth: 200,
-            valueFormatter: (params) =>
-                params.value ? (t[params.value] || params.value) : t["Zero Value"],
+            valueFormatter: (params) => (params.value ? (t[params.value] || params.value) : t["Zero Value"]),
             headerClass: 'flex items-center justify-start h-full text-lg',
+        },
+        {
+            headerName: t["Investment Preferences"],
+            field: 'investmentPreference',
+            minWidth: 300,
+            cellRenderer: (params: any) => {
+                const preferences = params.value || [];
+                return (
+                    <div className="flex flex-wrap gap-1 items-center h-full">
+                        {preferences.map((pref: string, index: number) => (
+                            <span
+                                key={index}
+                                className={`px-2 py-1 rounded-full text-sm ${investmentPreferenceColors[pref] || 'bg-gray-100 text-gray-800'}`}
+                            >
+                                {t[pref] || pref}
+                            </span>
+                        ))}
+                    </div>
+                );
+            },
+            headerClass: 'flex items-center justify-start h-full text-lg',
+            filter: true,
+            sortable: true,
         },
         {
             headerName: t["Headquarters"],
             field: 'headquarters',
             minWidth: 200,
-            valueFormatter: (params) =>
-                params.value ? (t[params.value] || params.value) : t["Zero Value"],
+            valueFormatter: (params) => (params.value ? (t[params.value] || params.value) : t["Zero Value"]),
             headerClass: 'flex items-center justify-start h-full text-lg',
         },
         {
             headerName: t["Market Cap"],
             field: 'marketCap',
             minWidth: 150,
-            valueFormatter: (params) =>
-                params.value ? `$${params.value.toLocaleString()}` : '$0',
+            valueFormatter: (params) => (params.value ? `$${params.value.toLocaleString()}` : '$0'),
             headerClass: 'flex items-center justify-start h-full text-lg',
         },
         {
             headerName: t["Total Equity"],
             field: 'capitalStructure.totalEquity',
             minWidth: 150,
-            valueFormatter: (params) =>
-                params.value ? `$${params.value.toLocaleString()}` : '$0',
+            valueFormatter: (params) => (params.value ? `$${params.value.toLocaleString()}` : '$0'),
             headerClass: 'flex items-center justify-start h-full text-lg',
         },
         {
             headerName: t["Total Debt"],
             field: 'capitalStructure.totalDebt',
             minWidth: 150,
-            valueFormatter: (params) =>
-                params.value ? `$${params.value.toLocaleString()}` : '$0',
+            valueFormatter: (params) => (params.value ? `$${params.value.toLocaleString()}` : '$0'),
             headerClass: 'flex items-center justify-start h-full text-lg',
         },
         {
             headerName: t["Debt-to-Equity Ratio"],
             field: 'capitalStructure.debtToEquityRatio',
             minWidth: 150,
-            valueFormatter: (params) =>
-                params.value ? params.value.toFixed(2) : '0.00',
+            valueFormatter: (params) => (params.value ? params.value.toFixed(2) : '0.00'),
             headerClass: 'flex items-center justify-start h-full text-lg',
         },
         {
@@ -261,10 +291,7 @@ const CompanyGrid: React.FC<CompanyGridProps> = ({
 
     return (
         <div className="flex flex-col flex-grow">
-            <div
-                className="ag-theme-quartz"
-                style={{ height: '900px', width: '100%' }}
-            >
+            <div className="ag-theme-quartz" style={{ height: '900px', width: '100%' }}>
                 <AgGridReact
                     ref={gridRef}
                     rowHeight={50}

@@ -8,10 +8,11 @@ import 'ag-grid-community/styles/ag-theme-alpine.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Company } from '../types/Company';
 import { CompanyListViewFilter, FilterOption } from '../types/CompanyListViewFilter';
-import CompanyGrid from '../components/companyListView/CompaniesGrid';
+
 import EditCompanyModal from '../components/editCompany/EditCompanyModal';
 import { CompanyListViewFilterModal } from '../components/filterSideBar/CompanyListViewFilterModal';
-import {useLanguage} from "../context/LanguageContext";
+import { useLanguage } from '../context/LanguageContext';
+import CompanyGrid from "../components/companyListView/CompaniesGrid";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -19,9 +20,9 @@ const FaBarsIcon = FaBars as React.ComponentType<{ size?: number }>;
 const FaTimesIcon = FaTimes as React.ComponentType<{ size?: number }>;
 
 interface CompanyListProps {
-    setSelectedCompany: any;
+    setSelectedCompany: (company: Company | null) => void;
     companies: Company[];
-    setCompanies: any;
+    setCompanies: React.Dispatch<React.SetStateAction<Company[]>>;
 }
 
 function CompanyListViewPage({
@@ -29,15 +30,16 @@ function CompanyListViewPage({
                                  companies,
                                  setCompanies,
                              }: CompanyListProps) {
-    const { t, language, changeLanguage } = useLanguage();
+    const { t, language } = useLanguage();
     const [filters, setFilters] = useState<CompanyListViewFilter>({
         search: '',
-        industry: '',
+        industry: [],
         marketCap: { min: '', max: '' },
         totalEquity: { min: '', max: '' },
         totalDebt: { min: '', max: '' },
         debtToEquityRatio: { min: '', max: '' },
         strategy: '',
+        investmentPreference: [],
     });
     const [selectedCompanies, setSelectedCompanies] = useState<number[]>([]);
     const [editCompany, setEditCompany] = useState<Company | null>(null);

@@ -1,25 +1,17 @@
 import React from "react";
-import {AgGridReact} from "ag-grid-react";
-import {
-    ModuleRegistry,
-    AllCommunityModule,
-} from "ag-grid-community";
+import { AgGridReact } from "ag-grid-react";
+import { ModuleRegistry, AllCommunityModule } from "ag-grid-community";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
-import {FaBars, FaTimes} from "react-icons/fa";
-import {Company, Holding, HoldingsData} from "../types/Company";
-import {CompanyDetailsViewFilter, FilterOptions} from "../types/CompanyDetailsViewFilter";
-import {useNavigate} from 'react-router-dom';
+import { FaBars, FaTimes } from "react-icons/fa";
+import { Company, Holding, HoldingsData } from "../types/Company";
+import { CompanyDetailsViewFilter, FilterOptions } from "../types/CompanyDetailsViewFilter";
+import { useNavigate } from 'react-router-dom';
 import CompanyDetailsSection from "../components/companyDetailsView/CompanyDetailsSection";
 import CompanyDetailsViewFilterModal from "../components/filterSideBar/CompanyDetailsViewFilterModal";
 import MarketableSecurityGrid from "../components/companyDetailsView/MarketableSecurityGrid";
-import {
-    getCapitalStructureByCompanyId,
-    getHoldingsByCompanyId,
-    getInvestmentExperienceByCompanyId
-} from "../services/CompanyService";
-import {useLanguage} from "../context/LanguageContext";
-
+import { getCapitalStructureByCompanyId, getHoldingsByCompanyId, getInvestmentExperienceByCompanyId } from "../services/CompanyService";
+import { useLanguage } from "../context/LanguageContext";
 import CompanySummaryCards from "../components/companyDetailsView/CompanySummaryCards";
 import CompanyQuickFilterBar from "../components/companyDetailsView/quickFilter/CompanyQuickFilterBar";
 
@@ -29,27 +21,30 @@ const FaBarsIcon = FaBars as React.ComponentType<{ size?: number }>;
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 type CompanyDetailsViewPageProps = {
-    company: Company,
-    updateCompany: any,
+    company: Company;
+    updateCompany: any;
     setSelectedCompany: (company: Company | null) => void;
 };
 
-function CompanyDetailsViewPage({company, updateCompany, setSelectedCompany}: CompanyDetailsViewPageProps) {
-    const {t, language, changeLanguage} = useLanguage();
+function CompanyDetailsViewPage({ company, updateCompany, setSelectedCompany }: CompanyDetailsViewPageProps) {
+    const { t } = useLanguage();
     const navigate = useNavigate();
+
     company.investmentExperience = getInvestmentExperienceByCompanyId(company?.id as number);
     company.capitalStructure = getCapitalStructureByCompanyId(company?.id as number);
     company.holdings = getHoldingsByCompanyId(company.id) as HoldingsData;
+
     const [data, setData] = React.useState<Holding[]>(company?.holdings?.items);
     const [filters, setFilters] = React.useState<CompanyDetailsViewFilter>({
         search: "",
         type: "",
         relationship: "",
         classification: "",
-        accountShares: {min: "", max: ""},
-        carryingAmount: {min: "", max: ""},
-        ownership: {min: "", max: ""},
-        fairValue: {min: "", max: ""},
+        accountShares: { min: "", max: "" },
+        carryingAmount: { min: "", max: "" },
+        ownership: { min: "", max: "" },
+        fairValue: { min: "", max: "" },
+        currency: "",
     });
     const [selectedHolding, setSelectedHolding] = React.useState<Holding | null>(null);
     const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
@@ -57,35 +52,35 @@ function CompanyDetailsViewPage({company, updateCompany, setSelectedCompany}: Co
     const [quickAmountFilterColumn, setQuickAmountFilterColumn] = React.useState<string>("carryingAmount");
     const [quickFromYearFilterColumn, setQuickFromYearFilterColumn] = React.useState<string>("2000");
     const [quickToYearFilterColumn, setQuickToYearFilterColumn] = React.useState<string>("2025");
-    const [quickFilterColumns, setQuickFilterColumns] = React.useState<string[]>(["Q1"]); // Changed to array
-
-    const gridRef = React.useRef<AgGridReact<Holding>>(null);
+    const [quickFilterColumns, setQuickFilterColumns] = React.useState<string[]>(["Q1"]);
+    const [displayCurrency, setDisplayCurrency] = React.useState<'USD' | 'Original'>('Original');
+    const gridRef = React.useRef<AgGridReact<Holding> | null>(null);
 
     const filterOptions: FilterOptions = {
         accountShares: [
-            {label: t["0-5,000"] || "0-5,000", min: 0, max: 5000},
-            {label: t["5,001-10,000"] || "5,001-10,000", min: 5001, max: 10000},
-            {label: t["10,001+"] || "10,001+", min: 10001, max: Infinity},
+            { label: t["0-5,000"] || "0-5,000", min: 0, max: 5000 },
+            { label: t["5,001-10,000"] || "5,001-10,000", min: 5001, max: 10000 },
+            { label: t["10,001+"] || "10,001+", min: 10001, max: Infinity },
         ],
         carryingAmount: [
-            {label: t["$0-$500,000"] || "$0-$500,000", min: 0, max: 500000},
-            {label: t["$500,001-$1,000,000"] || "$500,001-$1,000,000", min: 500001, max: 1000000},
-            {label: t["$1,000,001+"] || "$1,000,001+", min: 1000001, max: Infinity},
+            { label: t["$0-$500,000"] || "$0-$500,000", min: 0, max: 500000 },
+            { label: t["$500,001-$1,000,000"] || "$500,001-$1,000,000", min: 500001, max: 1000000 },
+            { label: t["$1,000,001+"] || "$1,000,001+", min: 1000001, max: Infinity },
         ],
         ownership: [
-            {label: t["0-1%"] || "0-1%", min: 0, max: 1},
-            {label: t["1.01-5%"] || "1.01-5%", min: 1.01, max: 5},
-            {label: t["5.01%+"] || "5.01%+", min: 5.01, max: Infinity},
+            { label: t["0-1%"] || "0-1%", min: 0, max: 1 },
+            { label: t["1.01-5%"] || "1.01-5%", min: 1.01, max: 5 },
+            { label: t["5.01%+"] || "5.01%+", min: 5.01, max: Infinity },
         ],
         fairValue: [
-            {label: t["$0-$500,000"] || "$0-$500,000", min: 0, max: 500000},
-            {label: t["$500,001-$1,000,000"] || "$500,001-$1,000,000", min: 500001, max: 1000000},
-            {label: t["$1,000,001+"] || "$1,000,001+", min: 1000001, max: Infinity},
+            { label: t["$0-$500,000"] || "$0-$500,000", min: 0, max: 500000 },
+            { label: t["$500,001-$1,000,000"] || "$500,001-$1,000,000", min: 500001, max: 1000000 },
+            { label: t["$1,000,001+"] || "$1,000,001+", min: 1000001, max: Infinity },
         ],
     };
 
     React.useEffect(() => {
-        updateCompany({...company, holdings: data});
+        updateCompany({ ...company, holdings: data });
     }, [data, company, updateCompany]);
 
     const filteredData = React.useMemo(() => {
@@ -98,29 +93,23 @@ function CompanyDetailsViewPage({company, updateCompany, setSelectedCompany}: Co
             const ownershipMax = parseFloat(filters.ownership.max as string);
             const fairValueMin = parseFloat(filters.fairValue.min as string);
             const fairValueMax = parseFloat(filters.fairValue.max as string);
-
             let itemYear: number | undefined;
             let itemQuarter: string | undefined;
-
             if (item.year && item.quarter) {
                 itemYear = item.year;
                 itemQuarter = item.quarter;
             }
-
             const fromYear = quickFromYearFilterColumn ? parseInt(quickFromYearFilterColumn, 10) : null;
             const toYear = quickToYearFilterColumn ? parseInt(quickToYearFilterColumn, 10) : null;
-            const quarters = quickFilterColumns.length > 0 ? quickFilterColumns : ["Q1", "Q2", "Q3", "Q4"]; // Include all if none selected
-
-            const matchesYearRange =
-                (!fromYear || (itemYear && itemYear >= fromYear)) &&
-                (!toYear || (itemYear && itemYear <= toYear));
+            const quarters = quickFilterColumns.length > 0 ? quickFilterColumns : ["Q1", "Q2", "Q3", "Q4"];
+            const matchesYearRange = (!fromYear || (itemYear && itemYear >= fromYear)) && (!toYear || (itemYear && itemYear <= toYear));
             const matchesQuarter = !itemQuarter || quarters.includes(itemQuarter);
-
             return (
                 item.name.toLowerCase().includes(filters.search.toLowerCase()) &&
                 (filters.type === "" || item.type === filters.type) &&
                 (filters.relationship === "" || item.relationship === filters.relationship) &&
                 (filters.classification === "" || item.classification === filters.classification) &&
+                (filters.currency === "" || item.currency === filters.currency) &&
                 (filters.accountShares.min === "" || (!isNaN(accountSharesMin) && item.accountShares >= accountSharesMin)) &&
                 (filters.accountShares.max === "" || (!isNaN(accountSharesMax) && item.accountShares <= accountSharesMax)) &&
                 (filters.carryingAmount.min === "" || (!isNaN(carryingAmountMin) && item.carryingAmount >= carryingAmountMin)) &&
@@ -138,7 +127,7 @@ function CompanyDetailsViewPage({company, updateCompany, setSelectedCompany}: Co
     const toggleFavorite = React.useCallback((id: number) => {
         setData((prev) =>
             prev.map((item) =>
-                item.fundId === id ? {...item, isFavorite: !item.isFavorite} : item
+                item.fundId === id ? { ...item, isFavorite: !item.isFavorite } : item
             )
         );
     }, []);
@@ -170,6 +159,7 @@ function CompanyDetailsViewPage({company, updateCompany, setSelectedCompany}: Co
                     "relationship",
                     "accountShares",
                     "carryingAmount",
+                    "currency",
                     "ownershipPercentage",
                     "classification",
                     "fairValue",
@@ -182,7 +172,7 @@ function CompanyDetailsViewPage({company, updateCompany, setSelectedCompany}: Co
         if (quickAmountFilterColumn) {
             setFilters((prev) => ({
                 ...prev,
-                [quickAmountFilterColumn]: {min: minValue.toString(), max: ""}
+                [quickAmountFilterColumn]: { min: minValue.toString(), max: "" },
             }));
         }
     };
@@ -191,29 +181,31 @@ function CompanyDetailsViewPage({company, updateCompany, setSelectedCompany}: Co
         setQuickAmountFilterColumn("");
         setQuickFromYearFilterColumn("2000");
         setQuickToYearFilterColumn("2025");
-        setQuickFilterColumns(["Q1"]); // Reset to default Q1
+        setQuickFilterColumns(["Q1"]);
+        setDisplayCurrency('Original'); // Added to reset currency
         setFilters({
             search: "",
             type: "",
             relationship: "",
             classification: "",
-            accountShares: {min: "", max: ""},
-            carryingAmount: {min: "", max: ""},
-            ownership: {min: "", max: ""},
-            fairValue: {min: "", max: ""},
+            accountShares: { min: "", max: "" },
+            carryingAmount: { min: "", max: "" },
+            ownership: { min: "", max: "" },
+            fairValue: { min: "", max: "" },
+            currency: "",
         });
     };
 
     const handleCompaniesClick = () => {
-        setSelectedCompany(null); // Clear selected company
+        setSelectedCompany(null);
         navigate("/companies");
     };
 
     const toggleQuarter = (quarter: string) => {
         setQuickFilterColumns((prev) =>
             prev.includes(quarter)
-                ? prev.filter((q) => q !== quarter) // Deselect quarter
-                : [...prev, quarter] // Select quarter
+                ? prev.filter((q) => q !== quarter)
+                : [...prev, quarter]
         );
     };
 
@@ -249,8 +241,8 @@ function CompanyDetailsViewPage({company, updateCompany, setSelectedCompany}: Co
                         </button>
                     </div>
                 </div>
-                <CompanyDetailsSection company={company}/>
-                <CompanySummaryCards summary={summary}/>
+                <CompanyDetailsSection company={company} />
+                <CompanySummaryCards summary={summary} />
                 <CompanyQuickFilterBar
                     summary={summary}
                     quickAmountFilterColumn={quickAmountFilterColumn}
@@ -263,11 +255,10 @@ function CompanyDetailsViewPage({company, updateCompany, setSelectedCompany}: Co
                     toggleQuarter={toggleQuarter}
                     applyQuickFilter={applyQuickFilter}
                     resetFilters={resetFilters}
+                    displayCurrency={displayCurrency}
+                    setDisplayCurrency={setDisplayCurrency}
                 />
-                <div
-                    className="flex flex-row w-full"
-                    style={{height: "calc(100vh - 64px - 80px - 104px - 64px)"}}
-                >
+                <div className="flex flex-row w-full" style={{ height: "calc(100vh - 64px - 80px - 104px - 64px)" }}>
                     <div
                         className={`bg-white shadow-lg transition-all duration-300 border-r border-gray-200 ${
                             isSidebarOpen ? "w-80" : "w-12"
@@ -278,7 +269,7 @@ function CompanyDetailsViewPage({company, updateCompany, setSelectedCompany}: Co
                             className="self-end mb-4 text-gray-600 hover:text-gray-900 transition-colors duration-200"
                             aria-label={t[isSidebarOpen ? "Collapse sidebar" : "Expand sidebar"] || (isSidebarOpen ? "Collapse sidebar" : "Expand sidebar")}
                         >
-                            {isSidebarOpen ? <FaTimesIcon size={20}/> : <FaBarsIcon size={20}/>}
+                            {isSidebarOpen ? <FaTimesIcon size={20} /> : <FaBarsIcon size={20} />}
                         </button>
                         {isSidebarOpen && (
                             <CompanyDetailsViewFilterModal
@@ -290,13 +281,12 @@ function CompanyDetailsViewPage({company, updateCompany, setSelectedCompany}: Co
                         )}
                     </div>
                     <div
-                        className={`flex-grow transition-all duration-300 ${
-                            isSidebarOpen ? "ml-80" : "ml-12"
-                        } md:ml-0 h-full`}
+                        className={`flex-grow transition-all duration-300 ${isSidebarOpen ? "ml-80" : "ml-12"} md:ml-0 h-full`}
                     >
                         {filteredData.length === 0 ? (
-                            <div
-                                className="p-4 text-gray-600 text-center">{t["No holdings match the current filters"] || "No holdings match the current filters"}</div>
+                            <div className="p-4 text-gray-600 text-center">
+                                {t["No holdings match the current filters"] || "No holdings match the current filters"}
+                            </div>
                         ) : (
                             <MarketableSecurityGrid
                                 data={filteredData}
@@ -304,6 +294,7 @@ function CompanyDetailsViewPage({company, updateCompany, setSelectedCompany}: Co
                                 toggleFavorite={toggleFavorite}
                                 setSelectedHolding={setSelectedHolding}
                                 gridRef={gridRef}
+                                displayCurrency={displayCurrency}
                             />
                         )}
                     </div>

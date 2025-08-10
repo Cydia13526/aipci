@@ -2,7 +2,7 @@ import React from 'react';
 import { FilterSection } from './FilterSection';
 import { RangeFilter } from './RangeFilter';
 import { FilterOption } from '../../types/CompanyListViewFilter';
-import {useLanguage} from "../../context/LanguageContext";
+import { useLanguage } from '../../context/LanguageContext';
 
 interface FilterConfig<T> {
     label: string;
@@ -11,6 +11,7 @@ interface FilterConfig<T> {
     options?: { value: string; label: string }[] | FilterOption[];
     placeholder?: string;
     ariaLabel: string;
+    multiple?: boolean;
 }
 
 interface FilterModalProps<T> {
@@ -26,31 +27,29 @@ export const FilterModal = <T,>({
                                     filterConfig,
                                     exportToCSV,
                                 }: FilterModalProps<T>) => {
-    const { t, language, changeLanguage } = useLanguage();
+    const { t } = useLanguage();
+
     return (
         <div className="flex flex-col gap-6 overflow-y-auto">
             {filterConfig.map((config) => (
                 <div key={String(config.key)}>
                     {config.type === 'range' ? (
                         <RangeFilter
-                            label= {config.label}
+                            label={config.label}
                             value={filters[config.key] as { min: string | number; max: string | number }}
                             options={config.options as FilterOption[]}
-                            onChange={(range) =>
-                                setFilters({ ...filters, [config.key]: range })
-                            }
+                            onChange={(range) => setFilters({ ...filters, [config.key]: range })}
                         />
                     ) : (
                         <FilterSection
                             label={config.label}
                             type={config.type}
-                            value={filters[config.key] as string}
-                            onChange={(value) =>
-                                setFilters({ ...filters, [config.key]: value })
-                            }
+                            value={filters[config.key] as string | string[]}
+                            onChange={(value) => setFilters({ ...filters, [config.key]: value })}
                             options={config.options as { value: string; label: string }[]}
                             placeholder={config.placeholder}
                             ariaLabel={config.ariaLabel}
+                            multiple={config.multiple}
                         />
                     )}
                 </div>

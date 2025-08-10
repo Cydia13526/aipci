@@ -1,9 +1,8 @@
 import React from 'react';
 import { CompanyListViewFilter, FilterOption } from '../../types/CompanyListViewFilter';
-import { Language, translations } from '../../types/Language';
 import { FilterModal } from './FilterModal';
-import { FilterOptions } from '../../types/CompanyDetailsViewFilter';
-import {useLanguage} from "../../context/LanguageContext";
+import { useLanguage } from '../../context/LanguageContext';
+import {FilterOptions} from "../../types/CompanyDetailsViewFilter";
 
 interface CompanyListViewFilterProps {
     filters: CompanyListViewFilter;
@@ -14,9 +13,9 @@ interface CompanyListViewFilterProps {
 export const CompanyListViewFilterModal: React.FC<CompanyListViewFilterProps> = ({
                                                                                      filters,
                                                                                      setFilters,
-                                                                                     filterOptions
+                                                                                     filterOptions,
                                                                                  }) => {
-    const { t, language, changeLanguage } = useLanguage();
+    const { t, language } = useLanguage();
 
     const filterConfig = [
         {
@@ -30,8 +29,9 @@ export const CompanyListViewFilterModal: React.FC<CompanyListViewFilterProps> = 
             label: t["Industry"] || "Industry",
             type: 'select' as const,
             key: 'industry' as keyof CompanyListViewFilter,
+            multiple: true,
             options: [
-                { value: '', label: t["All Industries"] || "All Industries" },
+                { value: 'All', label: t["All Industries"] || "All Industries" },
                 { value: 'Technology', label: t["Technology"] || "Technology" },
                 { value: 'Finance', label: t["Finance"] || "Finance" },
                 { value: 'Healthcare', label: t["Healthcare"] || "Healthcare" },
@@ -72,12 +72,29 @@ export const CompanyListViewFilterModal: React.FC<CompanyListViewFilterProps> = 
             type: 'select' as const,
             key: 'strategy' as keyof CompanyListViewFilter,
             options: [
-                { value: '', label: t["All Strategies"] || "All Strategies" },
+                { value: 'All', label: t["All Strategies"] || "All Strategies" },
                 { value: 'Growth', label: t["Growth"] || "Growth" },
                 { value: 'Value', label: t["Value"] || "Value" },
                 { value: 'Income', label: t["Income"] || "Income" },
             ],
             ariaLabel: t["Filter by investment strategy"] || "Filter by investment strategy",
+        },
+        {
+            label: t["Investment Preferences"] || "Investment Preferences",
+            type: 'select' as const,
+            key: 'investmentPreference' as keyof CompanyListViewFilter,
+            options: [
+                { value: 'All', label: t["All Investment Preferences"] || "All Investment Preferences" },
+                { value: 'Stock', label: t["Stock"] || "Stock" },
+                { value: 'Fund', label: t["Fund"] || "Fund" },
+                { value: 'Alternative', label: t["Alternative"] || "Alternative" },
+                { value: 'Venture Capital', label: t["Venture Capital"] || "Venture Capital" },
+                { value: 'Private Equity', label: t["Private Equity"] || "Private Equity" },
+                { value: 'Bond', label: t["Bond"] || "Bond" },
+                { value: 'Real Estate', label: t["Real Estate"] || "Real Estate" },
+            ],
+            multiple: true,
+            ariaLabel: t["Filter by investment preferences"] || "Filter by investment preferences",
         },
     ];
 
